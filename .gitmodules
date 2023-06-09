@@ -1,0 +1,6 @@
+[submodule "SE-SSD"]
+	path = SE-SSD
+	url = https://github.com/Vegeta2020/SE-SSD.git
+[submodule "ros2_ws/src/realsense-ros"]
+	path = ros2_ws/src/realsense-ros
+	url = https://github.com/IntelRealSense/realsense-ros.git
