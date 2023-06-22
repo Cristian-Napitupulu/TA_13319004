@@ -1,14 +1,8 @@
-import numpy as np
+import pandas as pd
 
-def moving_average(data, window):
-    weights = np.ones(window) / window
-    return np.convolve(data, weights, mode='same')
+filename = 'data.csv'
+df = pd.read_csv(filename)
 
-# Example usage
-data = np.array([10, 20, 30, 40, 50, 60, 70, 80, 90])
-window_size = 9
+new_row = {'A': 100, 'B': 200, 'C': 300}  # Example dictionary for a new row
 
-result = moving_average(data, window_size)
-print(result)
-
-print(np.where(result == np.amax(result)))
+df = df.append(new_row, ignore_index=True)
