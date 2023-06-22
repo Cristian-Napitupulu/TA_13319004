@@ -1,4 +1,7 @@
-import pandas as pd
-filename = 'data.csv'
-df = pd.read_csv(filename)
-max_value = df['Column_Name'].max()
+for i in range(10):
+    for j in range (10):
+        for k in range (10):
+            print("k:", k)
+        break
+    print ("i:", i)
+print("finished")
