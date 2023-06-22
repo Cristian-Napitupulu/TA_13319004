@@ -1,4 +1,9 @@
-'theta_max', 'theta_settling_time', 'x_final_value','x_settling_time', 'l_final_value', 'l_settling_time', 'lambda1', 'k', 'lambda2', 'alpha1'
+theta max,theta settling time,x final value,x settling time,l final value,l settling time,lambda 1,k,lambda 2,alpha 1
 0,1,2,3,4,5,6,7,8,9
+9,8,7,6,5,4,3,2,1,0
 0,1,2,3,4,5,6,7,8,9
+9,8,7,6,5,4,3,2,1,0
 0,1,2,3,4,5,6,7,8,9
+9,8,7,6,5,4,3,2,1,0
+0,1,2,3,4,5,6,7,8,9
+9,8,7,6,5,4,3,2,1,0
