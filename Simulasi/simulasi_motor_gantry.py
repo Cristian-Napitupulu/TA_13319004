@@ -184,7 +184,7 @@ while i < int(timeout_duration / dt):
         + matrix_D * theta_dot_dot[i]
         + (matrix_E - np.matmul(matrix_A, matrix_lambda)) * theta_dot[i]
         + matrix_F
-    ) - k * sign_matrix(sliding_surface_now)
+    ) + k * sign_matrix(sliding_surface_now)
 
     control_now = np.clip(control_now, -control_limit, control_limit)
     
