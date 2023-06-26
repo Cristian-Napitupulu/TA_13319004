@@ -30,44 +30,38 @@ def sign_matrix(X):
 
 
 # Physical Parameter
-mc = 2
-mt = 2
-bt = 2
-br = 2
+mc = 20000
+mt = 1000
+bt = 200
+br = 200
 g = 9.81
 
 # Control Parameter
-lambda1 = 0.45
-lambda2 = 0.15
-matrix_lambda = np.matrix([[lambda1, 0.0, 0.0], [0.0, lambda2, 0.0]])
-
-
-alpha1 = 0.5
+# K must be > 0
+k = 100.0
+lambda1 = 0.4
+lambda2 = 0.5
+alpha1 = 4.0
 alpha2 = 0.0
 
-
+matrix_lambda = np.matrix([[lambda1, 0.0, 0.0], [0.0, lambda2, 0.0]])
 matrix_alpha = np.matrix([[alpha1], [alpha2]])
 matrix_I = np.matrix([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]])
 
-# K must be > 0
-k = 0.05
-
 # Simulation Parameter
 dt = 0.005
-duration = 50.0
+duration = 80.0
 steady_state_checking_duration_window = 1.0
 
-
-y_desired = np.matrix([[1.0], [0.5], [0.0]])
-y_initial = np.matrix([[0.0], [1.5], [0.2]])
-
+y_initial = np.matrix([[0.0], [6.0], [0.0]])
+y_desired = np.matrix([[5.0], [1.0], [0.0]])
 
 x = state(dt, duration, x0=y_initial[0,0])
-x_dot = state(dt, duration, x0=0.5)
+x_dot = state(dt, duration)
 l = state(dt, duration, x0=y_initial[1,0])
-l_dot = state(dt, duration, x0=0.5)
+l_dot = state(dt, duration)
 theta = state(dt, duration, x0=y_initial[2,0])
-theta_dot = state(dt, duration, x0=0.005)
+theta_dot = state(dt, duration)
 
 Fx = state(dt, duration)
 Fl = state(dt, duration)
@@ -209,7 +203,7 @@ print("Simulation Completed!")
 # Plotting
 plt.figure(1)
 plt.plot(time, x._x, "r", label="x (m)")
-plt.plot(time, x_dot._x, "b--", label="x_dot (m/s)", alpha=0.5)
+plt.plot(time, x_dot._x, "b--", label="x_dot (m/s)", alpha=0.8)
 plt.legend(loc="upper right")
 plt.xlabel("time (s)")
 plt.ylabel("x")
@@ -218,7 +212,7 @@ plt.grid(True)
 
 plt.figure(2)
 plt.plot(time, l._x, "b", label="l (m)")
-plt.plot(time, l_dot._x, "g--", label="l_dot (m/s)", alpha=0.5)
+plt.plot(time, l_dot._x, "g--", label="l_dot (m/s)", alpha=0.8)
 plt.legend(loc="upper right")
 plt.xlabel("time (s)")
 plt.ylabel("l")
@@ -227,7 +221,7 @@ plt.grid(True)
 
 plt.figure(3)
 plt.plot(time, -theta._x, "b", label="theta (rad)")
-plt.plot(time, -theta_dot._x, "g--", label="theta_dot (rad/s)", alpha=0.5)
+plt.plot(time, -theta_dot._x, "g--", label="theta_dot (rad/s)", alpha=0.8)
 plt.legend(loc="upper right")
 plt.xlabel("time (s)")
 plt.ylabel("theta")
@@ -236,9 +230,16 @@ plt.grid(True)
 
 plt.figure(4)
 plt.plot(time, Fx._x, "r", label="Fx (N)")
+plt.plot(time, sliding_surface1._x, "b--", label="sliding_surface1", alpha=0.8)
+plt.legend(loc="upper right")
+plt.xlabel("time (s)")
+plt.ylabel("Control Parameter")
+plt.title("Control Parameter vs time")
+plt.grid(True)
+
+plt.figure(5)
 plt.plot(time, Fl._x, "b", label="Fy (N)")
-plt.plot(time, sliding_surface1._x, "r--", label="sliding_surface1")
-plt.plot(time, sliding_surface2._x, "b--", label="sliding_surface2")
+plt.plot(time, sliding_surface2._x, "g--", label="sliding_surface2", alpha=0.8)
 plt.legend(loc="upper right")
 plt.xlabel("time (s)")
 plt.ylabel("Control Parameter")
