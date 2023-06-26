@@ -30,18 +30,18 @@ def sign_matrix(X):
 
 
 # Physical Parameter
-mc = 20000
-mt = 1000
-bt = 200
-br = 200
+mc = 2
+mt = 2
+bt = 2
+br = 2
 g = 9.81
 
 # Control Parameter
 # K must be > 0
-k = 100.0
-lambda1 = 0.4
-lambda2 = 0.5
-alpha1 = 4.0
+k = 1.0
+lambda1 = 0.75
+lambda2 = 0.7
+alpha1 = 1.5
 alpha2 = 0.0
 
 matrix_lambda = np.matrix([[lambda1, 0.0, 0.0], [0.0, lambda2, 0.0]])
@@ -200,6 +200,8 @@ for j in range(int(duration / dt) - 1):
 
 print("Simulation Completed!")
 
+plot_folder_path = "Simulasi/Gambar/Simulasi Gantry/"
+
 # Plotting
 plt.figure(1)
 plt.plot(time, x._x, "r", label="x (m)")
@@ -209,6 +211,7 @@ plt.xlabel("time (s)")
 plt.ylabel("x")
 plt.title("x vs time")
 plt.grid(True)
+plt.savefig(plot_folder_path + "x vs time.png")
 
 plt.figure(2)
 plt.plot(time, l._x, "b", label="l (m)")
@@ -218,15 +221,17 @@ plt.xlabel("time (s)")
 plt.ylabel("l")
 plt.title("l vs time")
 plt.grid(True)
+plt.savefig(plot_folder_path + "l vs time.png")
 
 plt.figure(3)
-plt.plot(time, -theta._x, "b", label="theta (rad)")
-plt.plot(time, -theta_dot._x, "g--", label="theta_dot (rad/s)", alpha=0.8)
+plt.plot(time, theta._x * 180 / np.pi, "b", label="theta (degree)")
+plt.plot(time, theta_dot._x  * 180 / np.pi, "g--", label="theta_dot (degree/s)", alpha=0.8)
 plt.legend(loc="upper right")
 plt.xlabel("time (s)")
 plt.ylabel("theta")
 plt.title("theta vs time")
 plt.grid(True)
+plt.savefig(plot_folder_path + "theta vs time.png")
 
 plt.figure(4)
 plt.plot(time, Fx._x, "r", label="Fx (N)")
@@ -236,6 +241,7 @@ plt.xlabel("time (s)")
 plt.ylabel("Control Parameter")
 plt.title("Control Parameter vs time")
 plt.grid(True)
+plt.savefig(plot_folder_path + "Fx vs time.png")
 
 plt.figure(5)
 plt.plot(time, Fl._x, "b", label="Fy (N)")
@@ -245,6 +251,18 @@ plt.xlabel("time (s)")
 plt.ylabel("Control Parameter")
 plt.title("Control Parameter vs time")
 plt.grid(True)
+plt.savefig(plot_folder_path + "Fl vs time.png")
+
+plt.figure(6)
+plt.plot(time, x._x, "r", label="x (m)")
+plt.plot(time, l._x, "b", label="l (m)")
+plt.plot(time, theta._x * 180 / np.pi, "g", label="theta (degree)")
+plt.legend(loc="upper right")
+plt.xlabel("time (s)")
+plt.ylabel("State")
+plt.title("State vs time")
+plt.grid(True)
+plt.savefig(plot_folder_path + "State vs time.png")
 
 
-plt.show()
+# plt.show()

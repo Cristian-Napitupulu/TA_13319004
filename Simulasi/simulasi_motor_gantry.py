@@ -271,8 +271,10 @@ if (show_result):
 
     # print(theta_dot_dot)
 
+    plot_folder_path = "Simulasi/Gambar/Simulasi Gantry Motor/"
+
     # Plotting
-    plt.figure(1)
+    plt.figure("X Displacement")
     plt.plot(time, x_dot, "b--", label="x_dot (m/s)", alpha=0.5)
     plt.plot(time, x, "r", label="x (m)")
     plt.legend(loc="upper right")
@@ -280,6 +282,7 @@ if (show_result):
     plt.ylabel("x")
     plt.title("x vs time")
     plt.grid(True)
+    plt.savefig(plot_folder_path + "x vs time.png")
 
     plt.figure(2)
     plt.plot(time, l_dot, "g--", label="l_dot (m/s)", alpha=0.5)
@@ -289,6 +292,7 @@ if (show_result):
     plt.ylabel("l")
     plt.title("l vs time")
     plt.grid(True)
+    plt.savefig(plot_folder_path + "l vs time.png")
 
     theta = [math.degrees(i) for i in theta]
     theta_dot = [math.degrees(i) for i in theta_dot]
@@ -300,6 +304,7 @@ if (show_result):
     plt.ylabel("theta")
     plt.title("theta vs time")
     plt.grid(True)
+    plt.savefig(plot_folder_path + "theta vs time.png")
 
     plt.figure(4)
     plt.plot(time, Ux, "r", label="Ux (volt)")
@@ -309,6 +314,7 @@ if (show_result):
     plt.ylabel("Ux Response")
     plt.title("Ux vs time")
     plt.grid(True)
+    plt.savefig(plot_folder_path + "Ux vs time.png")
 
     plt.figure(5)
     plt.plot(time, Ul, "r", label="Uy (volt)")
@@ -318,6 +324,7 @@ if (show_result):
     plt.ylabel("Ul Response")
     plt.title("Ul vs time")
     plt.grid(True)
+    plt.savefig(plot_folder_path + "Ul vs time.png")
 
     plt.figure(6)
     plt.plot(time, x, "r", label="x (m)")
@@ -328,6 +335,7 @@ if (show_result):
     plt.ylabel("State")
     plt.title("State vs time")
     plt.grid(True)
+    plt.savefig(plot_folder_path + "State vs time.png")
 
 
-    plt.show()
+    # plt.show()
