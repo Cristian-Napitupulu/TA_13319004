@@ -24,10 +24,10 @@ br = 10.0
 g = 9.81
 
 # Motor 1
-L1 = 0.0060
-R1 = 2.0
-J1 = 0.00100
-b1 = 0.0004
+L1 = 0.0120
+R1 = 15.0
+J1 = 0.00200
+b1 = 0.004
 rp1 = 0.04
 Ke1 = 0.2
 Kt1 = 0.2
@@ -45,22 +45,27 @@ K2 = 1 / (Kt2 * rp2)
 
 control_limit = 24 # Volt
 
-
 # Control Parameter
-lambda1 = 10.0
+# Parameter for theta
+lambda1 = 15.0
 lambda2 = 0.0
 matrix_lambda = np.matrix([[lambda1], [lambda2]])
 
-alpha1 = 0.6
-alpha2 = 2.5
+# Parameter for x and l
+alpha1 = 0.30
+alpha2 = 0.9
 matrix_alpha = np.matrix([[alpha1, 0.0], [0.0, alpha2]])
 
-beta1 = 2.0
+# Parameter for x_dot and l_dot
+beta1 = 1.50
 beta2 = 5.0
 matrix_beta = np.matrix([[beta1, 0.0], [0.0, beta2]])
 
 # K must be > 0
-k = 0.001
+k1 = 0.003
+k2 = 0.00013
+k = [[k1], [k2]]
+# k = 0.0005
 
 # print("matrix lambda: \n", matrix_lambda)
 # print("matrix alpha: \n", matrix_alpha)
@@ -184,7 +189,8 @@ while i < int(timeout_duration / dt):
         + matrix_D * theta_dot_dot[i]
         + (matrix_E - np.matmul(matrix_A, matrix_lambda)) * theta_dot[i]
         + matrix_F
-    ) + k * sign_matrix(sliding_surface_now)
+    ) - k * sign_matrix(sliding_surface_now)
+    # print(-k@sign_matrix(sliding_surface_now))
 
     control_now = np.clip(control_now, -control_limit, control_limit)
     
