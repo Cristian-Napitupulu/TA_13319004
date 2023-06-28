@@ -24,7 +24,7 @@ br = 10.0
 g = 9.81
 
 # Motor 1
-L1 = 0.0120
+L1 = 0.00120
 R1 = 10.0
 J1 = 0.00200
 b1 = 0.004
@@ -35,7 +35,7 @@ K1 = 1 / (Kt1 * rp1)
 
 # Motor 2
 L2 = 0.0015
-R2 = 0.05
+R2 = 1.0
 J2 = 0.00025
 b2 = 0.0001
 rp2 = 0.01
@@ -43,17 +43,17 @@ Ke2 = 0.05
 Kt2 = 0.05
 K2 = 1 / (Kt2 * rp2)
 
-control_limit = 24 # Volt
+control_limit = 24  # Volt
 
 # Control Parameter
 # Parameter for theta
-lambda1 = 15.0
+lambda1 = 10.0
 lambda2 = 0.0
 matrix_lambda = np.matrix([[lambda1], [lambda2]])
 
 # Parameter for x and l
-alpha1 = 0.30
-alpha2 = 0.9
+alpha1 = 0.4
+alpha2 = 1.2
 matrix_alpha = np.matrix([[alpha1, 0.0], [0.0, alpha2]])
 
 # Parameter for x_dot and l_dot
@@ -62,8 +62,8 @@ beta2 = 5.0
 matrix_beta = np.matrix([[beta1, 0.0], [0.0, beta2]])
 
 # K must be > 0
-k1 = 0.01
-k2 = 0.00013
+k1 = 0.02
+k2 = 0.02
 k = [[k1], [k2]]
 # k = 0.0005
 
@@ -76,7 +76,6 @@ k = [[k1], [k2]]
 dt = 0.005
 timeout_duration = 60.0
 steady_state_checking_duration_window = 1.0
-
 
 
 y_desired = np.matrix([[1.0], [0.5], [0.0]])
@@ -112,107 +111,105 @@ while i < int(timeout_duration / dt):
     # print("i: ", i)
     # Update matrix A
     matrix_A[0, 0] = (
-        -K1 * L1 * (rp1**2 * np.cos(theta[i]) ** 2 * mc - (mc + mt) * rp1**2 - J1)
+        L1 * J1 / (Kt1 * rp1) + L1 * rp1 * (mt + mc * np.sin(theta[i]) ** 2) / Kt1
     )
-    matrix_A[0, 1] = -K1 * L1 * rp1**2 * mc * np.sin(theta[i])
-    matrix_A[1, 0] = -K2 * L2 * rp2**2 * mc * np.sin(theta[i])
-    matrix_A[1, 1] = K2 * L2 * (mc * rp2**2 + J2)
+    matrix_A[0, 1] = -L1 * rp1 * mc * np.sin(theta[i]) / Kt1
+    matrix_A[1, 0] = -L2 * rp2 * mc * np.sin(theta[i]) / Kt2
+    matrix_A[1, 1] = L2 * J2 / (Kt2 * rp2) + L2 * rp2 * mc / Kt2
 
     # Update matrix B
-    matrix_B[0, 0] = K1 * (
-        2 * rp1**2 * np.cos(theta[i]) * np.sin(theta[i]) * L1 * mc * theta_dot[i]
-        - rp1**2 * np.cos(theta[i])**2  * R1 * mc
-        + (L1 * b1 + R1 * mc + R1 * mt) * rp1**2
-        + R1 * J1
-        + L1 * b1
+    matrix_B[0, 0] = (
+        (L1 * b1 + R1 * J1) / (Kt1 * rp1)
+        + 2 * L1 * rp1 * mc * np.sin(theta[i]) * np.cos(theta[i]) * theta_dot[i] / Kt1
+        + L1 * rp1 * bt / Kt1
+        + R1 * rp1 * (mt + mc * np.sin(theta[i]) ** 2) / Kt1
     )
     matrix_B[0, 1] = (
-        -K1
-        * rp1**2
-        * mc
-        * (np.cos(theta[i]) * L1 * theta_dot[i] + np.sin(theta[i]) * R1)
+        -L1 * rp1 * mc * np.cos(theta[i]) * theta_dot[i] / Kt1
+        - R1 * rp1 * mc * np.sin(theta[i]) / Kt1
     )
     matrix_B[1, 0] = (
-        -K2
-        * rp2**2
-        * mc
-        * (np.cos(theta[i]) * L2 * theta_dot[i] + np.sin(theta[i]) * R2)
+        -L2 * rp2 * mc * np.cos(theta[i]) * theta_dot[i] / Kt2
+        - R2 * rp2 * mc * np.sin(theta[i]) / Kt2
     )
-    matrix_B[1, 1] = K2 * (rp2**2 * (L2 * br + R2 * mc) + R2 * J2 + L2 * b2)
+    matrix_B[1, 1] = (
+        (L2 * b2 + R2 * J2) / (Kt2 * rp2) + L2 * rp2 * br / Kt2 + R2 * rp2 * mc / Kt2
+    )
 
     # Update matrix C
-    matrix_C[0, 0] = K1 * (R1 * bt * rp1**2 + Ke1 * Kt1 + R1 * b1)
-    matrix_C[1, 1] = K2 * (R2 * br * rp2**2 + Ke2 * Kt2 + K2 * b2)
+    matrix_C[0, 0] = R1 * b1 / (Kt1 * rp1) + Ke1 / rp1 + R1 * rp1 * bt / Kt1
+    matrix_C[1, 1] = R2 * b2 / (Kt2 * rp2) + Ke2 / rp2 + R2 * rp2 * br / Kt2
 
     # Update matrix D
-    matrix_D[0, 0] = (
-        K1 * 2 * L1 * rp1**2 * mc * np.sin(theta[i]) * l[i] * theta_dot[i]
-    )
-    matrix_D[1, 0] = -K2 * 2 * L2 * rp2**2 * mc * l[i] * theta_dot[i]
+    matrix_D[0, 0] = 2 * L1 * rp1 * mc * l[i] * np.sin(theta[i]) * theta_dot[i] / Kt1
+    matrix_D[1, 0] = -2 * L2 * rp2 * mc * l[i] * theta_dot[i] / Kt2
 
     # Update matrix E
-    matrix_E[0, 0] = K1 * (
-        L1 * rp1**2 * mc * np.cos(theta[i]) * l[i] * theta_dot[i] ** 2
-        + rp1**2 * np.sin(theta[i]) * mc * (L1 * l_dot[i] + R1 * l[i]) * theta_dot[i]
-        + 2 * L1 * rp1**2 * (np.cos(theta[i]) ** 2 - 0.5) * mc * g
+    matrix_E[0, 0] = (
+        L1 * rp1 * mc * l[i] * np.cos(theta[i]) * theta_dot[i] ** 2 / Kt1
+        + L1 * rp1 * mc * np.sin(theta[i]) * l_dot[i] * theta_dot[i] / Kt1
+        + R1 * rp1 * mc * l[i] * np.sin(theta[i]) * theta_dot[i] / Kt1
+        + L1 * rp1 * mc * g * np.cos(theta[i]) ** 2 / Kt1
+        - L1 * rp1 * mc * g * np.sin(theta[i]) ** 2 / Kt1
     )
 
-    matrix_E[1, 0] = K2 * (
-        -(rp2**2) * mc * (L2 * l_dot[i] + R2 * l[i]) * theta_dot[i]
-        + L2 * rp2**2 * mc * np.sin(theta[i]) * g
+    matrix_E[1, 0] = (
+        -L2 * rp2 * mc * l_dot[i] * theta_dot[i] / Kt2
+        - R2 * rp2 * mc * l[i] * theta_dot[i] / Kt2
+        + L2 * rp2 * mc * g * np.sin(theta[i]) / Kt2
     )
 
     # Update matrix F
-    matrix_F[0, 0] = K1 * np.cos(theta[i]) * np.sin(theta[i]) * R1 * mc * rp1**2 * g
-    matrix_F[1, 0] = -K2 * np.cos(theta[i]) * R2 * mc * rp2**2 * g
+    matrix_F[0, 0] = R1 * rp1 * mc * g * np.sin(theta[i]) * np.cos(theta[i]) / Kt1
+    matrix_F[1, 0] = -R2 * rp2 * mc * g * np.cos(theta[i]) / Kt2
 
-    
-
-    y_now = np.matrix([[x[i]], [l[i]]])
-    y_dot_now = np.matrix([[x_dot[i]], [l_dot[i]]])
-    y_dot_dot_now = np.matrix([[x_dot_dot[i]], [l_dot_dot[i]]])
-    y_target = np.matrix([[y_desired[0, 0]], [y_desired[1, 0]]])
-    
+    q_now = np.matrix([[x[i]], [l[i]]])
+    q_dot_now = np.matrix([[x_dot[i]], [l_dot[i]]])
+    q_dot_dot_now = np.matrix([[x_dot_dot[i]], [l_dot_dot[i]]])
+    q_desired = np.matrix([[y_desired[0, 0]], [y_desired[1, 0]]])
 
     sliding_surface_now = np.matrix([[Sx[i]], [Sl[i]]])
     sliding_surface_now = (
-        matrix_lambda * theta[i]
-        + np.matmul(matrix_alpha, (y_now - y_target))
-        + np.matmul(matrix_beta, y_dot_now)
-        + y_dot_dot_now
+        np.matmul(matrix_alpha, (q_now - q_desired))
+        + np.matmul(matrix_beta, q_dot_now)
+        + q_dot_dot_now
+        + matrix_lambda * theta[i]
     )
-    
+
     control_now = np.matrix([[0], [0]])
     control_now = (
-        np.matmul((matrix_B - np.matmul(matrix_A, matrix_beta)), y_dot_dot_now)
-        + np.matmul((matrix_C - np.matmul(matrix_A, matrix_alpha)), y_dot_now)
+        np.matmul((matrix_B - np.matmul(matrix_A, matrix_beta)), q_dot_dot_now)
+        + np.matmul((matrix_C - np.matmul(matrix_A, matrix_alpha)), q_dot_now)
         + matrix_D * theta_dot_dot[i]
         + (matrix_E - np.matmul(matrix_A, matrix_lambda)) * theta_dot[i]
         + matrix_F
-    ) - k * sign_matrix(sliding_surface_now)
-    # print(-k@sign_matrix(sliding_surface_now))
+        - k * sign_matrix(sliding_surface_now)
+    )
 
     control_now = np.clip(control_now, -control_limit, control_limit)
-    
 
-    y_triple_dot_now = np.matmul(np.linalg.inv(matrix_A), (
-        control_now
-        - matrix_B * y_dot_dot_now
-        - matrix_C * y_dot_now
-        - matrix_D * theta_dot_dot[i]
-        - matrix_E * theta[i]
-        - matrix_F
-    ))
-    
+    q_triple_dot_now = np.matmul(
+        np.linalg.inv(matrix_A),
+        (
+            control_now
+            - (
+                matrix_B * q_dot_dot_now
+                + matrix_C * q_dot_now
+                + matrix_D * theta_dot_dot[i]
+                + matrix_E * theta[i]
+                + matrix_F
+            )
+        ),
+    )
 
-    x_dot_dot.append(x_dot_dot[i] + y_triple_dot_now[0, 0] * dt)
-    l_dot_dot.append(l_dot_dot[i] + y_triple_dot_now[1, 0] * dt)
-    temp_ = (
+    x_dot_dot.append(x_dot_dot[i] + q_triple_dot_now[0, 0] * dt)
+    l_dot_dot.append(l_dot_dot[i] + q_triple_dot_now[1, 0] * dt)
+    theta_dot_dot_temp_ = (
         np.cos(theta[i]) * x_dot_dot[i]
         - 2 * l_dot[i] * theta_dot[i]
         - np.sin(theta[i]) * g
     ) / l[i]
-    theta_dot_dot.append(temp_)
+    theta_dot_dot.append(theta_dot_dot_temp_)
     x_dot.append(x_dot[i] + x_dot_dot[i + 1] * dt)
     l_dot.append(l_dot[i] + l_dot_dot[i + 1] * dt)
     theta_dot.append(theta_dot[i] + theta_dot_dot[i + 1] * dt)
@@ -233,13 +230,13 @@ while i < int(timeout_duration / dt):
     # print("matrix E: \n", matrix_E)
     # print("matrix F: \n", matrix_F)
 
-    # print("y_now: \n", y_now)
-    # print("y_target: \n", y_target)
+    # print("q_now: \n", q_now)
+    # print("q_desired: \n", q_desired)
 
     # print("control_now: \n", control_now)
 
     # print("Inversed matrix A: \n", np.linalg.inv(matrix_A))
-    # print("y_triple_dot_now: \n", y_triple_dot_now)
+    # print("q_triple_dot_now: \n", q_triple_dot_now)
 
     # print("x: ", x[i+1])
     # print("l: ", l[i+1])
@@ -257,18 +254,20 @@ while i < int(timeout_duration / dt):
     # print("Ux: ", Ux[i+1])
     # print("Ul: ", Ul[i+1])
 
-    
-
     if i % 100 == 0:
         print("Progress: ", round(i / (timeout_duration / dt) * 100, 1), "%", end="\r")
 
     i += 1
-    if (abs(x[i]-y_desired[0,0]) > 2**16 or abs(l[i]-y_desired[1,0]) > 2**16 or abs(theta[i]-abs(y_desired[2,0])) > 2**16):
+    if (
+        abs(x[i] - y_desired[0, 0]) > 2**16
+        or abs(l[i] - y_desired[1, 0]) > 2**16
+        or abs(theta[i] - abs(y_desired[2, 0])) > 2**16
+    ):
         print("Simulation Failed! Divergence detected!")
         show_result = False
         break
 
-if (show_result):
+if show_result:
     print("Simulation Completed!")
 
     time = np.arange(0, timeout_duration + dt, dt)
@@ -342,6 +341,5 @@ if (show_result):
     plt.title("State vs time")
     plt.grid(True)
     plt.savefig(plot_folder_path + "State vs time.png")
-
 
     # plt.show()
