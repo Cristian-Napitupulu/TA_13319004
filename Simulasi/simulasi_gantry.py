@@ -38,8 +38,8 @@ g = 9.81
 
 # Control Parameter
 # K must be > 0
-k = 1.0
-lambda1 = 0.75
+k = 0.3
+lambda1 = 0.5
 lambda2 = 0.7
 alpha1 = 1.5
 alpha2 = 0.0
@@ -50,7 +50,7 @@ matrix_I = np.matrix([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]])
 
 # Simulation Parameter
 dt = 0.005
-duration = 80.0
+duration = 30.0
 steady_state_checking_duration_window = 1.0
 
 y_initial = np.matrix([[0.0], [6.0], [0.0]])
@@ -157,8 +157,8 @@ for j in range(int(duration / dt) - 1):
     control_now = np.linalg.inv(matrix_B_cap) * (
         -np.matmul((matrix_A_cap + matrix_lambda), y_dot)
         - matrix_G_cap
-        - matrix_alpha * theta_dot._x[j]
-    ) + k * sign_matrix(sliding_surface_now)
+        - matrix_alpha * theta_dot._x[j] + k * sign_matrix(sliding_surface_now)
+    ) 
     control_now = np.clip(control_now, -control_limit, control_limit)
 
     # Create dummy matrix for state
