@@ -47,22 +47,22 @@ control_limit = 24  # Volt
 
 # Control Parameter
 # Parameter for theta
-lambda1 = 10.0
+lambda1 = 15.0
 lambda2 = 0.0
 matrix_lambda = np.matrix([[lambda1], [lambda2]])
 
 # Parameter for x and l
-alpha1 = 0.4
+alpha1 = 0.5
 alpha2 = 1.2
 matrix_alpha = np.matrix([[alpha1, 0.0], [0.0, alpha2]])
 
 # Parameter for x_dot and l_dot
-beta1 = 1.50
+beta1 = 2.0
 beta2 = 5.0
 matrix_beta = np.matrix([[beta1, 0.0], [0.0, beta2]])
 
 # K must be > 0
-k1 = 0.02
+k1 = 0.01
 k2 = 0.02
 k = [[k1], [k2]]
 # k = 0.0005
@@ -73,7 +73,7 @@ k = [[k1], [k2]]
 # print("k: \n", k)
 
 # Simulation Parameter
-dt = 0.005
+dt = 0.001
 timeout_duration = 60.0
 steady_state_checking_duration_window = 1.0
 
@@ -120,7 +120,7 @@ while i < int(timeout_duration / dt):
     # Update matrix B
     matrix_B[0, 0] = (
         (L1 * b1 + R1 * J1) / (Kt1 * rp1)
-        + 2 * L1 * rp1 * mc * np.sin(theta[i]) * np.cos(theta[i]) * theta_dot[i] / Kt1
+        + L1 * rp1 * mc * np.sin(2*theta[i]) * theta_dot[i] / Kt1
         + L1 * rp1 * bt / Kt1
         + R1 * rp1 * (mt + mc * np.sin(theta[i]) ** 2) / Kt1
     )
@@ -149,8 +149,7 @@ while i < int(timeout_duration / dt):
         L1 * rp1 * mc * l[i] * np.cos(theta[i]) * theta_dot[i] ** 2 / Kt1
         + L1 * rp1 * mc * np.sin(theta[i]) * l_dot[i] * theta_dot[i] / Kt1
         + R1 * rp1 * mc * l[i] * np.sin(theta[i]) * theta_dot[i] / Kt1
-        + L1 * rp1 * mc * g * np.cos(theta[i]) ** 2 / Kt1
-        - L1 * rp1 * mc * g * np.sin(theta[i]) ** 2 / Kt1
+        + L1 * rp1 * mc * g * np.cos(2* theta[i]) ** 2 / Kt1
     )
 
     matrix_E[1, 0] = (
@@ -287,7 +286,7 @@ if show_result:
     plt.ylabel("x")
     plt.title("x vs time")
     plt.grid(True)
-    plt.savefig(plot_folder_path + "x vs time.png")
+    plt.savefig(plot_folder_path + "x vs time.svg", format='svg', transparent=True)
 
     plt.figure(2)
     plt.plot(time, l_dot, "g--", label="l_dot (m/s)", alpha=0.5)
@@ -297,7 +296,7 @@ if show_result:
     plt.ylabel("l")
     plt.title("l vs time")
     plt.grid(True)
-    plt.savefig(plot_folder_path + "l vs time.png")
+    plt.savefig(plot_folder_path + "l vs time.svg", format='svg', transparent=True)
 
     theta = [math.degrees(i) for i in theta]
     theta_dot = [math.degrees(i) for i in theta_dot]
@@ -309,7 +308,7 @@ if show_result:
     plt.ylabel("theta")
     plt.title("theta vs time")
     plt.grid(True)
-    plt.savefig(plot_folder_path + "theta vs time.png")
+    plt.savefig(plot_folder_path + "theta vs time.svg", format='svg', transparent=True)
 
     plt.figure(4)
     plt.plot(time, Ux, "r", label="Ux (volt)")
@@ -319,7 +318,7 @@ if show_result:
     plt.ylabel("Ux Response")
     plt.title("Ux vs time")
     plt.grid(True)
-    plt.savefig(plot_folder_path + "Ux vs time.png")
+    plt.savefig(plot_folder_path + "Ux vs time.svg", format='svg', transparent=True)
 
     plt.figure(5)
     plt.plot(time, Ul, "r", label="Uy (volt)")
@@ -329,7 +328,7 @@ if show_result:
     plt.ylabel("Ul Response")
     plt.title("Ul vs time")
     plt.grid(True)
-    plt.savefig(plot_folder_path + "Ul vs time.png")
+    plt.savefig(plot_folder_path + "Ul vs time.svg", format='svg', transparent=True)
 
     plt.figure(6)
     plt.plot(time, x, "r", label="x (m)")
@@ -340,6 +339,6 @@ if show_result:
     plt.ylabel("State")
     plt.title("State vs time")
     plt.grid(True)
-    plt.savefig(plot_folder_path + "State vs time.png")
+    plt.savefig(plot_folder_path + "State vs time.svg", format='svg', transparent=True)
 
     # plt.show()
