@@ -24,10 +24,10 @@ br = 10.0
 g = 9.81
 
 # Motor 1
-L1 = 0.00120
-R1 = 10.0
-J1 = 0.00200
-b1 = 0.004
+L1 = 0.0015
+R1 = 1.0
+J1 = 0.00025
+b1 = 0.0004
 rp1 = 0.04
 Ke1 = 0.05
 Kt1 = 0.05
@@ -37,7 +37,7 @@ K1 = 1 / (Kt1 * rp1)
 L2 = 0.0015
 R2 = 1.0
 J2 = 0.00025
-b2 = 0.0001
+b2 = 0.0004
 rp2 = 0.01
 Ke2 = 0.05
 Kt2 = 0.05
@@ -62,7 +62,7 @@ beta2 = 5.0
 matrix_beta = np.matrix([[beta1, 0.0], [0.0, beta2]])
 
 # K must be > 0
-k1 = 0.01
+k1 = 0.015
 k2 = 0.02
 k = [[k1], [k2]]
 # k = 0.0005
@@ -74,7 +74,7 @@ k = [[k1], [k2]]
 
 # Simulation Parameter
 dt = 0.001
-timeout_duration = 60.0
+timeout_duration = 20.0
 steady_state_checking_duration_window = 1.0
 
 
@@ -287,6 +287,7 @@ if show_result:
     plt.title("x vs time")
     plt.grid(True)
     plt.savefig(plot_folder_path + "x vs time.svg", format='svg', transparent=True)
+    plt.savefig(plot_folder_path + "x vs time.png")
 
     plt.figure(2)
     plt.plot(time, l_dot, "g--", label="l_dot (m/s)", alpha=0.5)
@@ -297,6 +298,7 @@ if show_result:
     plt.title("l vs time")
     plt.grid(True)
     plt.savefig(plot_folder_path + "l vs time.svg", format='svg', transparent=True)
+    plt.savefig(plot_folder_path + "l vs time.png")
 
     theta = [math.degrees(i) for i in theta]
     theta_dot = [math.degrees(i) for i in theta_dot]
@@ -309,6 +311,7 @@ if show_result:
     plt.title("theta vs time")
     plt.grid(True)
     plt.savefig(plot_folder_path + "theta vs time.svg", format='svg', transparent=True)
+    plt.savefig(plot_folder_path + "theta vs time.png")
 
     plt.figure(4)
     plt.plot(time, Ux, "r", label="Ux (volt)")
@@ -319,6 +322,7 @@ if show_result:
     plt.title("Ux vs time")
     plt.grid(True)
     plt.savefig(plot_folder_path + "Ux vs time.svg", format='svg', transparent=True)
+    plt.savefig(plot_folder_path + "Ux vs time.png")
 
     plt.figure(5)
     plt.plot(time, Ul, "r", label="Uy (volt)")
@@ -329,6 +333,7 @@ if show_result:
     plt.title("Ul vs time")
     plt.grid(True)
     plt.savefig(plot_folder_path + "Ul vs time.svg", format='svg', transparent=True)
+    plt.savefig(plot_folder_path + "Ul vs time.png")
 
     plt.figure(6)
     plt.plot(time, x, "r", label="x (m)")
@@ -340,5 +345,6 @@ if show_result:
     plt.title("State vs time")
     plt.grid(True)
     plt.savefig(plot_folder_path + "State vs time.svg", format='svg', transparent=True)
+    plt.savefig(plot_folder_path + "State vs time.png")
 
     # plt.show()
