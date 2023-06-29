@@ -17,29 +17,29 @@ def sign_matrix(X):
 
 
 # Physical Parameter
-mc = 1.0
-mt = 1.0
+mc = 2.0
+mt = 2.0
 bt = 10.0
 br = 10.0
 g = 9.81
 
 # Motor 1
 L1 = 0.0015
-R1 = 10.0
-J1 = 0.001
+R1 = 1.0
+J1 = 0.0005
 b1 = 0.0004
-rp1 = 0.02
+rp1 = 0.01
 Ke1 = 0.05
 Kt1 = 0.05
 K1 = 1 / (Kt1 * rp1)
 
 # Motor 2
 L2 = 0.0015
-R2 = 5.0
-J2 = 0.00025
+R2 = 1.0
+J2 = 0.0005
 b2 = 0.0004
 rp2 = 0.01
-Ke2 = 0.05
+Ke2 = 0.08
 Kt2 = 0.08
 K2 = 1 / (Kt2 * rp2)
 
@@ -53,7 +53,7 @@ matrix_lambda = np.matrix([[lambda1], [lambda2]])
 
 # Parameter for x and l
 alpha1 = 0.5
-alpha2 = 1.2
+alpha2 = 1.7
 matrix_alpha = np.matrix([[alpha1, 0.0], [0.0, alpha2]])
 
 # Parameter for x_dot and l_dot
@@ -62,8 +62,8 @@ beta2 = 5.0
 matrix_beta = np.matrix([[beta1, 0.0], [0.0, beta2]])
 
 # K must be > 0
-k1 = 0.03
-k2 = 0.02
+k1 = 0.0020
+k2 = 0.03
 k = [[k1], [k2]]
 # k = 0.0005
 
@@ -185,7 +185,7 @@ while i < int(timeout_duration / dt):
         - k * sign_matrix(sliding_surface_now)
     )
 
-    control_now = np.clip(control_now, -control_limit, control_limit) # type: ignore
+    # control_now = np.clip(control_now, -control_limit, control_limit) # type: ignore
 
     q_triple_dot_now = np.matmul(
         np.linalg.inv(matrix_A),
@@ -262,7 +262,14 @@ while i < int(timeout_duration / dt):
         or abs(l[i] - y_desired[1, 0]) > 2**16
         or abs(theta[i] - abs(y_desired[2, 0])) > 2**16
     ):
-        print("Simulation Failed! Divergence detected!")
+        if abs(x[i] - y_desired[0, 0]) > 2**16:
+            print("x diverged at time: ", i * dt, "s", "x: ", x[i], "y_desired: ", y_desired[0, 0])
+        if abs(l[i] - y_desired[1, 0]) > 2**16:
+            print("l diverged at time: ", i * dt, "s", "l: ", l[i], "y_desired: ", y_desired[1, 0])
+        if abs(theta[i] - abs(y_desired[2, 0])) > 2**16:
+            print("theta diverged at time: ", i * dt, "s", "theta: ", theta[i], "y_desired: ", y_desired[2, 0])
+        
+        print("Simulation Failed!")
         show_result = False
         break
 
