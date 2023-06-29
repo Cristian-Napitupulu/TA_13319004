@@ -17,30 +17,30 @@ def sign_matrix(X):
 
 
 # Physical Parameter
-mc = 5.0
-mt = 5.0
+mc = 1.0
+mt = 1.0
 bt = 10.0
 br = 10.0
 g = 9.81
 
 # Motor 1
 L1 = 0.0015
-R1 = 1.0
-J1 = 0.00025
+R1 = 10.0
+J1 = 0.001
 b1 = 0.0004
-rp1 = 0.04
+rp1 = 0.02
 Ke1 = 0.05
 Kt1 = 0.05
 K1 = 1 / (Kt1 * rp1)
 
 # Motor 2
 L2 = 0.0015
-R2 = 1.0
+R2 = 5.0
 J2 = 0.00025
 b2 = 0.0004
 rp2 = 0.01
 Ke2 = 0.05
-Kt2 = 0.05
+Kt2 = 0.08
 K2 = 1 / (Kt2 * rp2)
 
 control_limit = 24  # Volt
@@ -62,7 +62,7 @@ beta2 = 5.0
 matrix_beta = np.matrix([[beta1, 0.0], [0.0, beta2]])
 
 # K must be > 0
-k1 = 0.015
+k1 = 0.03
 k2 = 0.02
 k = [[k1], [k2]]
 # k = 0.0005
@@ -185,7 +185,7 @@ while i < int(timeout_duration / dt):
         - k * sign_matrix(sliding_surface_now)
     )
 
-    control_now = np.clip(control_now, -control_limit, control_limit)
+    control_now = np.clip(control_now, -control_limit, control_limit) # type: ignore
 
     q_triple_dot_now = np.matmul(
         np.linalg.inv(matrix_A),
@@ -275,7 +275,7 @@ if show_result:
 
     # print(theta_dot_dot)
 
-    plot_folder_path = "Simulasi/Gambar/Simulasi Gantry Motor/"
+    plot_folder_path = "Simulasi/Simulasi Gantry Motor/Gambar/"
 
     # Plotting
     plt.figure("X Displacement")
