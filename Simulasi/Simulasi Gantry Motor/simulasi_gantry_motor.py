@@ -91,7 +91,7 @@ rp2 = 0.01
 Ke2 = 0.08
 Kt2 = 0.08
 
-control_limit = 4.2  # Volt
+control_limit = 3.7  # Volt
 contstrained = not True
 scenario = "unconstrained"
 
