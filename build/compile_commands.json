@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/icodes/Documents/TA_13319004/build",
-  "command": "/usr/bin/g++  -I/home/icodes/Documents/TA_13319004/se-ssd_gantry/include -I/usr/local/cuda/include -I/home/xxx/softwares/nvidia/TensorRT-8.0.1.6/include -I/usr/local/cuda-11.8/include  -std=c++11 -Wall -Ofast -Wfatal-errors -D_MWAITXINTRIN_H_INCLUDED -O3 -DNDEBUG   -std=c++11 -O2 -pthread -std=gnu++11 -o CMakeFiles/se-ssd_gantry.dir/se-ssd-ai-trt.cpp.o -c /home/icodes/Documents/TA_13319004/se-ssd_gantry/se-ssd-ai-trt.cpp",
-  "file": "/home/icodes/Documents/TA_13319004/se-ssd_gantry/se-ssd-ai-trt.cpp"
-}
-]
