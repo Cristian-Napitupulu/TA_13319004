@@ -1,9 +1,6 @@
 [submodule "ros2_ws/src/realsense_gantry"]
 	path = ros2_ws/src/realsense_gantry
 	url = https://github.com/Cristian-Napitupulu/realsense_gantry.git
-[submodule "se-ssd_gantry"]
-	path = se-ssd_gantry
-	url = https://github.com/Cristian-Napitupulu/se-ssd_gantry.git
 [submodule "GantryCrane"]
 	path = GantryCrane
 	url = https://github.com/hilmi-ica/GantryCrane.git

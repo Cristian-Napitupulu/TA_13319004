@@ -1,0 +1,1 @@
+Untuk Keperluan ICA, file yang digunakan adalah file "variasi_gantry_ICA.ipynb" pada folder "Variasi ICA". Selebihnya tidak digunakan dan hanya untuk eksperimen.
