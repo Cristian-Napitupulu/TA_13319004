@@ -6,7 +6,11 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
     <dc:date>2023-07-16T09:16:48.420935</dc:date>
+=======
+    <dc:date>2023-07-03T11:22:39.087867</dc:date>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -44,16 +48,28 @@ z
      <g id="line2d_1">
       <path d="M 73.832727 307.584 
 L 73.832727 41.472 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_2">
       <defs>
        <path id="mf48bae1eb9" d="M 0 0 
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m497a2fab4e" d="M 0 0 
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
 L 0 3.5 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
        <use xlink:href="#mf48bae1eb9" x="73.832727" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+       <use xlink:href="#m497a2fab4e" x="73.832727" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_1">
@@ -99,11 +115,19 @@ z
      <g id="line2d_3">
       <path d="M 114.414545 307.584 
 L 114.414545 41.472 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_4">
       <g>
        <use xlink:href="#mf48bae1eb9" x="114.414545" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m497a2fab4e" x="114.414545" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_2">
@@ -170,11 +194,19 @@ z
      <g id="line2d_5">
       <path d="M 154.996364 307.584 
 L 154.996364 41.472 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_6">
       <g>
        <use xlink:href="#mf48bae1eb9" x="154.996364" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m497a2fab4e" x="154.996364" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_3">
@@ -190,11 +222,19 @@ L 154.996364 41.472
      <g id="line2d_7">
       <path d="M 195.578182 307.584 
 L 195.578182 41.472 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_8">
       <g>
        <use xlink:href="#mf48bae1eb9" x="195.578182" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m497a2fab4e" x="195.578182" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_4">
@@ -222,11 +262,19 @@ z
      <g id="line2d_9">
       <path d="M 236.16 307.584 
 L 236.16 41.472 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_10">
       <g>
        <use xlink:href="#mf48bae1eb9" x="236.16" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m497a2fab4e" x="236.16" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_5">
@@ -259,11 +307,19 @@ z
      <g id="line2d_11">
       <path d="M 276.741818 307.584 
 L 276.741818 41.472 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_12">
       <g>
        <use xlink:href="#mf48bae1eb9" x="276.741818" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m497a2fab4e" x="276.741818" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_6">
@@ -280,11 +336,19 @@ L 276.741818 41.472
      <g id="line2d_13">
       <path d="M 317.323636 307.584 
 L 317.323636 41.472 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_14">
       <g>
        <use xlink:href="#mf48bae1eb9" x="317.323636" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m497a2fab4e" x="317.323636" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_7">
@@ -301,11 +365,19 @@ L 317.323636 41.472
      <g id="line2d_15">
       <path d="M 357.905455 307.584 
 L 357.905455 41.472 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_16">
       <g>
        <use xlink:href="#mf48bae1eb9" x="357.905455" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m497a2fab4e" x="357.905455" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_8">
@@ -322,11 +394,19 @@ L 357.905455 41.472
      <g id="line2d_17">
       <path d="M 398.487273 307.584 
 L 398.487273 41.472 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_18">
       <g>
        <use xlink:href="#mf48bae1eb9" x="398.487273" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#m497a2fab4e" x="398.487273" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_9">
@@ -507,16 +587,28 @@ z
      <g id="line2d_19">
       <path d="M 57.6 295.387657 
 L 414.72 295.387657 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_20">
       <defs>
        <path id="mc093c59952" d="M 0 0 
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_20">
+      <defs>
+       <path id="m0e9f7c4ee8" d="M 0 0 
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
 L -3.5 0 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
        <use xlink:href="#mc093c59952" x="57.6" y="295.387657" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+       <use xlink:href="#m0e9f7c4ee8" x="57.6" y="295.387657" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_11">
@@ -532,11 +624,19 @@ L -3.5 0
      <g id="line2d_21">
       <path d="M 57.6 247.126228 
 L 414.72 247.126228 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_22">
       <g>
        <use xlink:href="#mc093c59952" x="57.6" y="247.126228" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_22">
+      <g>
+       <use xlink:href="#m0e9f7c4ee8" x="57.6" y="247.126228" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_12">
@@ -552,11 +652,19 @@ L 414.72 247.126228
      <g id="line2d_23">
       <path d="M 57.6 198.864799 
 L 414.72 198.864799 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_24">
       <g>
        <use xlink:href="#mc093c59952" x="57.6" y="198.864799" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_24">
+      <g>
+       <use xlink:href="#m0e9f7c4ee8" x="57.6" y="198.864799" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_13">
@@ -593,11 +701,19 @@ z
      <g id="line2d_25">
       <path d="M 57.6 150.60337 
 L 414.72 150.60337 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_26">
       <g>
        <use xlink:href="#mc093c59952" x="57.6" y="150.60337" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_26">
+      <g>
+       <use xlink:href="#m0e9f7c4ee8" x="57.6" y="150.60337" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_14">
@@ -645,11 +761,19 @@ z
      <g id="line2d_27">
       <path d="M 57.6 102.341942 
 L 414.72 102.341942 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_28">
       <g>
        <use xlink:href="#mc093c59952" x="57.6" y="102.341942" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_28">
+      <g>
+       <use xlink:href="#m0e9f7c4ee8" x="57.6" y="102.341942" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_15">
@@ -706,11 +830,19 @@ z
      <g id="line2d_29">
       <path d="M 57.6 54.080513 
 L 414.72 54.080513 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_30">
       <g>
        <use xlink:href="#mc093c59952" x="57.6" y="54.080513" style="stroke: #000000; stroke-width: 0.8"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_30">
+      <g>
+       <use xlink:href="#m0e9f7c4ee8" x="57.6" y="54.080513" style="stroke: #000000; stroke-width: 0.8"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
       </g>
      </g>
      <g id="text_16">
@@ -874,7 +1006,11 @@ L 380.274153 295.466542
 L 390.030022 295.458744 
 L 398.487273 295.451333 
 L 398.487273 295.451333 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #0000ff; stroke-width: 1.5"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #0000ff; stroke-width: 1.5"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
    </g>
    <g id="line2d_32">
     <path d="M 73.832727 295.387657 
@@ -936,7 +1072,11 @@ L 321.738938 53.568016
 L 350.730589 53.674923 
 L 398.487273 53.920902 
 L 398.487273 53.920902 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
 " clip-path="url(#pce0f37f8f3)" style="fill: none; stroke: #ff0000; stroke-width: 1.5; stroke-linecap: square"/>
+=======
+" clip-path="url(#pa0493c5dc5)" style="fill: none; stroke: #ff0000; stroke-width: 1.5; stroke-linecap: square"/>
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
    </g>
    <g id="patch_3">
     <path d="M 57.6 307.584 
@@ -1103,7 +1243,11 @@ L 341.11375 69.526688
   </g>
  </g>
  <defs>
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/unconstrained x vs time.svg
   <clipPath id="pce0f37f8f3">
+=======
+  <clipPath id="pa0493c5dc5">
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/unconstrained x vs time.svg
    <rect x="57.6" y="41.472" width="357.12" height="266.112"/>
   </clipPath>
  </defs>

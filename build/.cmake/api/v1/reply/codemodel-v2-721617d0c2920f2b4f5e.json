@@ -1,0 +1,123 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.9"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "se-ssd_gantry",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "filterBoxByScorelayer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-filterBoxByScorelayer-Release-ff1f19bfe0cbb25928dd.json",
+					"name" : "filterBoxByScorelayer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "generateAnchorDecodelayer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-generateAnchorDecodelayer-Release-42943c55487e310d9b42.json",
+					"name" : "generateAnchorDecodelayer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "se-ssd_gantry::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-se-ssd_gantry-Release-9eaea68c451cc31d8c4a.json",
+					"name" : "se-ssd_gantry",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sparse2Denselayer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sparse2Denselayer-Release-a15bc5e52520012436e8.json",
+					"name" : "sparse2Denselayer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sparseConv3dlayer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sparseConv3dlayer-Release-b00587dd149837e70cac.json",
+					"name" : "sparseConv3dlayer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "submConv3dlayer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-submConv3dlayer-Release-6a88eebc45e5d34b61a1.json",
+					"name" : "submConv3dlayer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "voxelGeneratorlayer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-voxelGeneratorlayer-Release-d074bdd011670613a1d5.json",
+					"name" : "voxelGeneratorlayer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "zeroPad2dlayer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-zeroPad2dlayer-Release-7fc70da5d648008381f5.json",
+					"name" : "zeroPad2dlayer",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/icodes/Documents/TA_13319004/build",
+		"source" : "/home/icodes/Documents/TA_13319004/se-ssd_gantry"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

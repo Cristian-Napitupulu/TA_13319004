@@ -104,9 +104,15 @@ rp2 = 0.01
 Ke2 = 0.08
 Kt2 = 0.08
 
+<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/simulasi_gantry_motor.py
 control_limit = 4.2  # Volt
 constrained = not True
 scenario_name = "unconstrained"
+=======
+control_limit = 3.7  # Volt
+contstrained = not True
+scenario = "unconstrained"
+>>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/simulasi_gantry_motor.py
 
 # Control Parameter
 # Parameter for theta
