@@ -7,6 +7,9 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import os
+
+absolute_folder_path = os.path.abspath(os.path.dirname(__file__))
 
 def moving_average_cumsum(data, window_size):
     cumsum = np.cumsum(data, dtype=float)
@@ -157,7 +160,7 @@ for j in range(int(duration / dt) - 1):
 
     # Create dummy matrix for sliding surface
     sliding_surface_now = (
-        matrix_lambda * (y_desired - y) - matrix_I * y_dot - matrix_alpha * theta._x[j]
+        matrix_lambda * np.subtract(y_desired, y) - matrix_I * y_dot - matrix_alpha * theta._x[j]
     )
 
     # Create dummy matrix for control input
@@ -208,7 +211,8 @@ for j in range(int(duration / dt) - 1):
 
 print("Simulation Completed!")
 
-plot_folder_path = "Simulasi Gantry ICA/Gambar/"
+relative_folder_path = "Gambar/"
+folder_path = os.path.join(absolute_folder_path, relative_folder_path)
 
 # Plotting
 plt.figure(1)
@@ -219,7 +223,7 @@ plt.xlabel("time (s)")
 plt.ylabel("x")
 plt.title("x vs time")
 plt.grid(True)
-plt.savefig(plot_folder_path + "x vs time.png")
+plt.savefig(folder_path + "x vs time.png")
 
 plt.figure(2)
 plt.plot(time, l._x, "b", label="l (m)")
@@ -229,7 +233,7 @@ plt.xlabel("time (s)")
 plt.ylabel("l")
 plt.title("l vs time")
 plt.grid(True)
-plt.savefig(plot_folder_path + "l vs time.png")
+plt.savefig(folder_path + "l vs time.png")
 
 plt.figure(3)
 plt.plot(time, theta._x * 180 / np.pi, "b", label="theta (degree)")
@@ -239,7 +243,7 @@ plt.xlabel("time (s)")
 plt.ylabel("theta")
 plt.title("theta vs time")
 plt.grid(True)
-plt.savefig(plot_folder_path + "theta vs time.png")
+plt.savefig(folder_path + "theta vs time.png")
 
 plt.figure(4)
 plt.plot(time, Fx._x, "r", label="Fx (N)")
@@ -249,7 +253,7 @@ plt.xlabel("time (s)")
 plt.ylabel("Control Parameter")
 plt.title("Control Parameter vs time")
 plt.grid(True)
-plt.savefig(plot_folder_path + "Fx vs time.png")
+plt.savefig(folder_path + "Fx vs time.png")
 
 plt.figure(5)
 plt.plot(time, Fl._x, "b", label="Fy (N)")
@@ -259,7 +263,7 @@ plt.xlabel("time (s)")
 plt.ylabel("Control Parameter")
 plt.title("Control Parameter vs time")
 plt.grid(True)
-plt.savefig(plot_folder_path + "Fl vs time.png")
+plt.savefig(folder_path + "Fl vs time.png")
 
 plt.figure(6)
 plt.plot(time, x._x, "r", label="x (m)")
@@ -270,7 +274,7 @@ plt.xlabel("time (s)")
 plt.ylabel("State")
 plt.title("State vs time")
 plt.grid(True)
-plt.savefig(plot_folder_path + "State vs time.png")
+plt.savefig(folder_path + "State vs time.png")
 
 
 plt.show()

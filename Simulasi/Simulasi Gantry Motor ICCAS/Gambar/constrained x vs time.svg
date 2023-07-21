@@ -6,15 +6,11 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-    <dc:date>2023-07-16T09:16:59.740285</dc:date>
-=======
-    <dc:date>2023-07-03T11:22:43.523302</dc:date>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+    <dc:date>2023-07-21T15:02:02.086696</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.7.1, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.5.1, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -48,33 +44,21 @@ z
      <g id="line2d_1">
       <path d="M 73.832727 307.584 
 L 73.832727 41.472 
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_2">
       <defs>
-       <path id="m195abd73e4" d="M 0 0 
-=======
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_2">
-      <defs>
-       <path id="m3812d809fe" d="M 0 0 
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <path id="mb12535b614" d="M 0 0 
 L 0 3.5 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-       <use xlink:href="#m195abd73e4" x="73.832727" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-       <use xlink:href="#m3812d809fe" x="73.832727" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#mb12535b614" x="73.832727" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_1">
       <!-- 0.0 -->
-      <g transform="translate(65.881165 322.182437) scale(0.1 -0.1)">
+      <g transform="translate(65.881165 322.182437)scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-30" d="M 2034 4250 
 Q 1547 4250 1301 3770 
@@ -115,24 +99,16 @@ z
      <g id="line2d_3">
       <path d="M 114.414545 307.584 
 L 114.414545 41.472 
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_4">
       <g>
-       <use xlink:href="#m195abd73e4" x="114.414545" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_4">
-      <g>
-       <use xlink:href="#m3812d809fe" x="114.414545" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#mb12535b614" x="114.414545" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_2">
       <!-- 2.5 -->
-      <g transform="translate(106.462983 322.182437) scale(0.1 -0.1)">
+      <g transform="translate(106.462983 322.182437)scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-32" d="M 1228 531 
 L 3431 531 
@@ -194,24 +170,16 @@ z
      <g id="line2d_5">
       <path d="M 154.996364 307.584 
 L 154.996364 41.472 
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_6">
       <g>
-       <use xlink:href="#m195abd73e4" x="154.996364" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_6">
-      <g>
-       <use xlink:href="#m3812d809fe" x="154.996364" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#mb12535b614" x="154.996364" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_3">
       <!-- 5.0 -->
-      <g transform="translate(147.044801 322.182437) scale(0.1 -0.1)">
+      <g transform="translate(147.044801 322.182437)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-35"/>
        <use xlink:href="#DejaVuSans-2e" x="63.623047"/>
        <use xlink:href="#DejaVuSans-30" x="95.410156"/>
@@ -222,24 +190,16 @@ L 154.996364 41.472
      <g id="line2d_7">
       <path d="M 195.578182 307.584 
 L 195.578182 41.472 
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_8">
       <g>
-       <use xlink:href="#m195abd73e4" x="195.578182" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_8">
-      <g>
-       <use xlink:href="#m3812d809fe" x="195.578182" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#mb12535b614" x="195.578182" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_4">
       <!-- 7.5 -->
-      <g transform="translate(187.626619 322.182437) scale(0.1 -0.1)">
+      <g transform="translate(187.626619 322.182437)scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-37" d="M 525 4666 
 L 3525 4666 
@@ -262,24 +222,16 @@ z
      <g id="line2d_9">
       <path d="M 236.16 307.584 
 L 236.16 41.472 
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_10">
       <g>
-       <use xlink:href="#m195abd73e4" x="236.16" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_10">
-      <g>
-       <use xlink:href="#m3812d809fe" x="236.16" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#mb12535b614" x="236.16" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_5">
       <!-- 10.0 -->
-      <g transform="translate(225.027188 322.182437) scale(0.1 -0.1)">
+      <g transform="translate(225.027188 322.182437)scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-31" d="M 794 531 
 L 1825 531 
@@ -307,24 +259,16 @@ z
      <g id="line2d_11">
       <path d="M 276.741818 307.584 
 L 276.741818 41.472 
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_12">
       <g>
-       <use xlink:href="#m195abd73e4" x="276.741818" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_12">
-      <g>
-       <use xlink:href="#m3812d809fe" x="276.741818" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#mb12535b614" x="276.741818" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_6">
       <!-- 12.5 -->
-      <g transform="translate(265.609006 322.182437) scale(0.1 -0.1)">
+      <g transform="translate(265.609006 322.182437)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-31"/>
        <use xlink:href="#DejaVuSans-32" x="63.623047"/>
        <use xlink:href="#DejaVuSans-2e" x="127.246094"/>
@@ -336,24 +280,16 @@ L 276.741818 41.472
      <g id="line2d_13">
       <path d="M 317.323636 307.584 
 L 317.323636 41.472 
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_14">
       <g>
-       <use xlink:href="#m195abd73e4" x="317.323636" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_14">
-      <g>
-       <use xlink:href="#m3812d809fe" x="317.323636" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#mb12535b614" x="317.323636" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_7">
       <!-- 15.0 -->
-      <g transform="translate(306.190824 322.182437) scale(0.1 -0.1)">
+      <g transform="translate(306.190824 322.182437)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-31"/>
        <use xlink:href="#DejaVuSans-35" x="63.623047"/>
        <use xlink:href="#DejaVuSans-2e" x="127.246094"/>
@@ -365,24 +301,16 @@ L 317.323636 41.472
      <g id="line2d_15">
       <path d="M 357.905455 307.584 
 L 357.905455 41.472 
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_16">
       <g>
-       <use xlink:href="#m195abd73e4" x="357.905455" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_16">
-      <g>
-       <use xlink:href="#m3812d809fe" x="357.905455" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#mb12535b614" x="357.905455" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_8">
       <!-- 17.5 -->
-      <g transform="translate(346.772642 322.182437) scale(0.1 -0.1)">
+      <g transform="translate(346.772642 322.182437)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-31"/>
        <use xlink:href="#DejaVuSans-37" x="63.623047"/>
        <use xlink:href="#DejaVuSans-2e" x="127.246094"/>
@@ -394,24 +322,16 @@ L 357.905455 41.472
      <g id="line2d_17">
       <path d="M 398.487273 307.584 
 L 398.487273 41.472 
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_18">
       <g>
-       <use xlink:href="#m195abd73e4" x="398.487273" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_18">
-      <g>
-       <use xlink:href="#m3812d809fe" x="398.487273" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#mb12535b614" x="398.487273" y="307.584" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_9">
       <!-- 20.0 -->
-      <g transform="translate(387.35446 322.182437) scale(0.1 -0.1)">
+      <g transform="translate(387.35446 322.182437)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-32"/>
        <use xlink:href="#DejaVuSans-30" x="63.623047"/>
        <use xlink:href="#DejaVuSans-2e" x="127.246094"/>
@@ -421,7 +341,7 @@ L 398.487273 41.472
     </g>
     <g id="text_10">
      <!-- time (s) -->
-     <g transform="translate(216.768594 335.860562) scale(0.1 -0.1)">
+     <g transform="translate(216.768594 335.860562)scale(0.1 -0.1)">
       <defs>
        <path id="DejaVuSans-74" d="M 1172 4494 
 L 1172 3500 
@@ -585,37 +505,23 @@ z
    <g id="matplotlib.axis_2">
     <g id="ytick_1">
      <g id="line2d_19">
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-      <path d="M 57.6 295.388489 
-L 414.72 295.388489 
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 57.6 295.486151 
+L 414.72 295.486151 
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_20">
       <defs>
-       <path id="mc78e3937b3" d="M 0 0 
-=======
-      <path d="M 57.6 295.457856 
-L 414.72 295.457856 
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_20">
-      <defs>
-       <path id="m07c5a256ef" d="M 0 0 
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <path id="ma7e915d16e" d="M 0 0 
 L -3.5 0 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-       <use xlink:href="#mc78e3937b3" x="57.6" y="295.388489" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-       <use xlink:href="#m07c5a256ef" x="57.6" y="295.457856" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#ma7e915d16e" x="57.6" y="295.486151" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_11">
       <!-- 0.0 -->
-      <g transform="translate(34.696875 299.257074) scale(0.1 -0.1)">
+      <g transform="translate(34.696875 299.28537)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-30"/>
        <use xlink:href="#DejaVuSans-2e" x="63.623047"/>
        <use xlink:href="#DejaVuSans-30" x="95.410156"/>
@@ -624,28 +530,18 @@ L -3.5 0
     </g>
     <g id="ytick_2">
      <g id="line2d_21">
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-      <path d="M 57.6 247.102081 
-L 414.72 247.102081 
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 57.6 247.181063 
+L 414.72 247.181063 
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_22">
       <g>
-       <use xlink:href="#mc78e3937b3" x="57.6" y="247.102081" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-      <path d="M 57.6 247.130975 
-L 414.72 247.130975 
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_22">
-      <g>
-       <use xlink:href="#m07c5a256ef" x="57.6" y="247.130975" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#ma7e915d16e" x="57.6" y="247.181063" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_12">
       <!-- 0.2 -->
-      <g transform="translate(34.696875 250.930193) scale(0.1 -0.1)">
+      <g transform="translate(34.696875 250.980281)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-30"/>
        <use xlink:href="#DejaVuSans-2e" x="63.623047"/>
        <use xlink:href="#DejaVuSans-32" x="95.410156"/>
@@ -654,28 +550,18 @@ L 414.72 247.130975
     </g>
     <g id="ytick_3">
      <g id="line2d_23">
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-      <path d="M 57.6 198.815674 
-L 414.72 198.815674 
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 57.6 198.875974 
+L 414.72 198.875974 
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_24">
       <g>
-       <use xlink:href="#mc78e3937b3" x="57.6" y="198.815674" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-      <path d="M 57.6 198.804094 
-L 414.72 198.804094 
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_24">
-      <g>
-       <use xlink:href="#m07c5a256ef" x="57.6" y="198.804094" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#ma7e915d16e" x="57.6" y="198.875974" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_13">
       <!-- 0.4 -->
-      <g transform="translate(34.696875 202.603312) scale(0.1 -0.1)">
+      <g transform="translate(34.696875 202.675193)scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-34" d="M 2419 4116 
 L 825 1625 
@@ -705,28 +591,18 @@ z
     </g>
     <g id="ytick_4">
      <g id="line2d_25">
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-      <path d="M 57.6 150.529267 
-L 414.72 150.529267 
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 57.6 150.570886 
+L 414.72 150.570886 
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_26">
       <g>
-       <use xlink:href="#mc78e3937b3" x="57.6" y="150.529267" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-      <path d="M 57.6 150.477213 
-L 414.72 150.477213 
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_26">
-      <g>
-       <use xlink:href="#m07c5a256ef" x="57.6" y="150.477213" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#ma7e915d16e" x="57.6" y="150.570886" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_14">
       <!-- 0.6 -->
-      <g transform="translate(34.696875 154.276431) scale(0.1 -0.1)">
+      <g transform="translate(34.696875 154.370105)scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-36" d="M 2113 2584 
 Q 1688 2584 1439 2293 
@@ -767,28 +643,18 @@ z
     </g>
     <g id="ytick_5">
      <g id="line2d_27">
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-      <path d="M 57.6 102.242859 
-L 414.72 102.242859 
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 57.6 102.265798 
+L 414.72 102.265798 
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_28">
       <g>
-       <use xlink:href="#mc78e3937b3" x="57.6" y="102.242859" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-      <path d="M 57.6 102.150332 
-L 414.72 102.150332 
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_28">
-      <g>
-       <use xlink:href="#m07c5a256ef" x="57.6" y="102.150332" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#ma7e915d16e" x="57.6" y="102.265798" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_15">
       <!-- 0.8 -->
-      <g transform="translate(34.696875 105.94955) scale(0.1 -0.1)">
+      <g transform="translate(34.696875 106.065017)scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-38" d="M 2034 2216 
 Q 1584 2216 1326 1975 
@@ -838,28 +704,18 @@ z
     </g>
     <g id="ytick_6">
      <g id="line2d_29">
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-      <path d="M 57.6 53.956452 
-L 414.72 53.956452 
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 57.6 53.96071 
+L 414.72 53.96071 
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_30">
       <g>
-       <use xlink:href="#mc78e3937b3" x="57.6" y="53.956452" style="stroke: #000000; stroke-width: 0.8"/>
-=======
-      <path d="M 57.6 53.823451 
-L 414.72 53.823451 
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_30">
-      <g>
-       <use xlink:href="#m07c5a256ef" x="57.6" y="53.823451" style="stroke: #000000; stroke-width: 0.8"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+       <use xlink:href="#ma7e915d16e" x="57.6" y="53.96071" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_16">
       <!-- 1.0 -->
-      <g transform="translate(34.696875 57.622669) scale(0.1 -0.1)">
+      <g transform="translate(34.696875 57.759928)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-31"/>
        <use xlink:href="#DejaVuSans-2e" x="63.623047"/>
        <use xlink:href="#DejaVuSans-30" x="95.410156"/>
@@ -868,7 +724,7 @@ L 414.72 53.823451
     </g>
     <g id="text_17">
      <!-- x -->
-     <g transform="translate(28.617188 177.487375) rotate(-90) scale(0.1 -0.1)">
+     <g transform="translate(28.617188 177.487375)rotate(-90)scale(0.1 -0.1)">
       <defs>
        <path id="DejaVuSans-78" d="M 3513 3500 
 L 2247 1797 
@@ -891,346 +747,178 @@ z
     </g>
    </g>
    <g id="line2d_31">
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-    <path d="M 73.832727 295.388489 
-L 74.254778 295.269473 
-L 74.709295 294.894925 
-L 75.244975 294.147308 
-L 75.894284 292.835434 
-L 76.689687 290.694493 
-L 79.644044 282.093665 
-L 80.747869 279.813634 
-L 82.046487 277.695342 
-L 83.13408 276.324041 
-L 84.367767 275.132514 
-L 85.406662 274.396004 
-L 86.120902 274.140278 
-L 86.948771 274.096278 
-L 87.890269 274.275108 
-L 91.023185 275.071393 
-L 91.851055 274.993318 
-L 92.646458 274.708164 
-L 93.587956 274.099399 
-L 97.467578 271.281926 
-L 102.662051 267.241884 
-L 104.756073 265.728888 
-L 108.181178 263.833648 
-L 109.804451 263.282929 
-L 111.395258 262.99296 
-L 113.083462 262.960867 
-L 114.414545 263.120111 
-L 116.118982 263.538145 
-L 117.77472 264.117149 
-L 119.657716 264.974235 
-L 120.729076 265.847113 
-L 122.725702 267.836131 
-L 124.040553 268.962052 
-L 124.965818 269.497932 
-L 125.761222 269.732812 
-L 126.491695 269.73978 
-L 127.222167 269.53793 
-L 130.030429 268.257739 
-L 134.55936 265.922214 
-L 138.195491 264.354921 
-L 140.208349 263.827295 
-L 141.831622 263.627365 
-L 143.909411 263.679494 
-L 145.63008 263.97902 
-L 146.393018 264.378739 
-L 147.334516 265.176439 
-L 148.568204 266.564057 
-L 151.587491 270.085759 
-L 152.658851 270.897756 
-L 153.502953 271.266448 
-L 154.347055 271.372388 
-L 155.126225 271.239859 
-L 156.035258 270.822778 
-L 156.992989 270.130195 
-L 159.73632 268.006042 
-L 162.625745 266.36727 
-L 164.037993 265.831572 
-L 164.882095 265.697733 
-L 165.693731 265.802441 
-L 166.5216 266.132719 
-L 167.544262 266.809415 
-L 168.680553 267.822361 
-L 172.462778 271.446015 
-L 173.647767 272.148707 
-L 174.589265 272.460007 
-L 175.514531 272.550717 
-L 176.585891 272.418115 
-L 177.900742 272.001227 
-L 181.471942 270.784737 
-L 182.445905 270.74404 
-L 183.403636 270.897285 
-L 184.507462 271.315256 
-L 185.741149 272.046463 
-L 187.510516 273.395184 
-L 190.09152 275.283164 
-L 191.276509 275.893852 
-L 192.575127 276.296696 
-L 193.695185 276.430148 
-L 195.432087 276.362888 
-L 198.094255 276.190255 
-L 199.457804 276.338328 
-L 200.80512 276.72087 
-L 202.119971 277.308856 
-L 204.684742 278.785272 
-L 206.567738 279.795303 
-L 208.255942 280.424157 
-L 209.700655 280.726766 
-L 211.551185 280.886332 
-L 215.284713 281.22834 
-L 217.151476 281.738601 
-L 219.1968 282.551165 
-L 222.638138 283.938744 
-L 224.439971 284.403474 
-L 226.663855 284.722112 
-L 230.26752 285.126117 
-L 232.361542 285.570393 
-L 234.780218 286.277502 
-L 239.01696 287.413752 
-L 241.322007 287.748517 
-L 248.318313 288.730085 
-L 256.126255 290.105957 
-L 262.651811 290.812993 
-L 270.070167 291.787641 
-L 284.046545 293.028989 
-L 301.269469 294.063025 
-L 308.168378 294.314229 
-L 314.693935 294.590104 
-L 339.822196 295.125954 
-L 367.174342 295.321186 
-L 380.744902 295.405158 
-L 395.597847 295.482675 
-L 398.487273 295.487837 
-L 398.487273 295.487837 
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #0000ff; stroke-width: 1.5"/>
+    <path d="M 73.832727 295.486151 
+L 74.254778 295.367089 
+L 74.709295 294.992396 
+L 75.244975 294.24449 
+L 75.894284 292.932109 
+L 76.689687 290.790339 
+L 79.644044 282.188025 
+L 80.780335 279.847005 
+L 81.932858 277.949163 
+L 83.117847 276.433551 
+L 84.384 275.213405 
+L 85.390429 274.49988 
+L 86.153367 274.228396 
+L 86.981236 274.193886 
+L 87.938967 274.382944 
+L 91.153047 275.163075 
+L 92.078313 275.024253 
+L 92.825018 274.701988 
+L 94.091171 273.826439 
+L 102.840611 267.184643 
+L 104.821004 265.77452 
+L 107.126051 264.410573 
+L 109.252538 263.532522 
+L 111.168 263.107986 
+L 112.77504 263.032456 
+L 114.333382 263.197514 
+L 115.826793 263.542341 
+L 117.661091 264.158735 
+L 119.641484 265.047911 
+L 120.712844 265.913975 
+L 122.59584 267.791455 
+L 124.105484 269.090783 
+L 125.079447 269.629587 
+L 125.956015 269.838937 
+L 126.70272 269.789036 
+L 127.611753 269.463492 
+L 129.040233 268.829309 
+L 132.303011 267.181169 
+L 134.981411 265.795082 
+L 137.546182 264.673054 
+L 140.110953 263.930838 
+L 141.945251 263.709119 
+L 143.763316 263.750743 
+L 145.597615 264.053688 
+L 146.279389 264.388866 
+L 147.172189 265.101837 
+L 148.389644 266.431195 
+L 151.847215 270.389035 
+L 152.804945 271.057506 
+L 153.649047 271.383962 
+L 154.37952 271.454373 
+L 155.126225 271.324908 
+L 156.019025 270.921811 
+L 157.041687 270.180544 
+L 159.427898 268.304388 
+L 160.823913 267.400742 
+L 162.641978 266.454028 
+L 164.119156 265.900986 
+L 164.963258 265.787653 
+L 165.774895 265.912263 
+L 166.602764 266.260466 
+L 167.625425 266.955326 
+L 169.053905 268.274494 
+L 172.105658 271.246938 
+L 173.30688 272.061548 
+L 174.329542 272.483188 
+L 175.206109 272.63338 
+L 176.293702 272.569141 
+L 177.429993 272.269993 
+L 179.37792 271.492404 
+L 180.855098 270.996465 
+L 181.893993 270.835714 
+L 182.884189 270.877929 
+L 183.971782 271.167642 
+L 185.010676 271.669126 
+L 186.244364 272.490141 
+L 191.16288 275.934599 
+L 192.461498 276.362874 
+L 193.581556 276.515709 
+L 195.253527 276.471881 
+L 198.224116 276.289223 
+L 199.749993 276.492491 
+L 201.243404 276.986429 
+L 203.029004 277.895937 
+L 206.713833 279.946005 
+L 208.353338 280.541224 
+L 209.992844 280.857977 
+L 212.655011 281.039068 
+L 214.765265 281.23142 
+L 216.5184 281.627298 
+L 218.579956 282.375875 
+L 223.449775 284.262792 
+L 225.576262 284.698448 
+L 232.05312 285.583785 
+L 234.488029 286.276808 
+L 237.815738 287.221879 
+L 240.640233 287.754094 
+L 248.983855 288.946556 
+L 256.110022 290.206626 
+L 263.560844 291.033564 
+L 267.992378 291.681128 
+L 273.154385 292.12773 
+L 277.05024 292.466801 
+L 283.072582 293.025302 
+L 303.980335 294.258873 
+L 309.320902 294.462372 
+L 315.408175 294.711207 
+L 325.829585 294.968877 
+L 333.150545 295.122554 
+L 395.062167 295.485412 
+L 398.487273 295.48784 
+L 398.487273 295.48784 
+" clip-path="url(#pef365e007b)" style="fill: none; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #0000ff; stroke-width: 1.5"/>
    </g>
    <g id="line2d_32">
-    <path d="M 73.832727 295.388489 
-L 75.878051 295.278484 
-L 77.046807 294.983462 
-L 78.118167 294.480525 
-L 79.335622 293.655139 
-L 80.764102 292.408018 
-L 82.517236 290.565372 
-L 84.757353 287.867248 
-L 94.38336 275.487772 
-L 97.272785 271.411086 
-L 100.162211 266.947224 
-L 103.116567 261.967584 
-L 106.34688 256.072787 
-L 110.469993 248.050463 
-L 119.868742 229.616263 
-L 122.758167 224.464913 
-L 125.842385 219.457094 
-L 130.614807 211.711627 
-L 134.299636 205.269268 
-L 138.30912 197.792764 
-L 150.207709 175.249003 
-L 152.821178 171.15343 
-L 159.02208 161.635702 
-L 162.301091 155.989617 
-L 170.823273 141.05309 
-L 173.631535 136.870032 
-L 182.299811 124.266203 
-L 186.731345 117.737005 
-L 189.539607 114.016536 
-L 192.899782 109.960808 
-L 203.580916 97.606689 
-L 206.600204 94.560229 
-L 210.560989 90.914442 
-L 217.638458 84.712466 
-L 220.998633 82.067612 
-L 224.602298 79.529304 
-L 230.494778 75.68821 
-L 234.747753 73.14114 
-L 238.48128 71.170904 
-L 243.691985 68.702229 
-L 248.870225 66.464572 
-L 253.1232 64.870219 
-L 258.626095 63.064474 
-L 264.291316 61.417443 
-L 269.453324 60.158178 
-L 276.254836 58.740332 
-L 282.423273 57.677965 
-L 289.54944 56.693307 
-L 297.032727 55.863651 
-L 306.236684 55.113436 
-L 314.921193 54.603064 
-L 327.014575 54.122171 
-L 341.250676 53.813252 
-L 361.606516 53.618607 
-L 387.936 53.585169 
-L 398.487273 53.637667 
-L 398.487273 53.637667 
-" clip-path="url(#p7eb344a4ba)" style="fill: none; stroke: #ff0000; stroke-width: 1.5; stroke-linecap: square"/>
-=======
-    <path d="M 73.832727 295.457856 
-L 74.254778 295.33874 
-L 74.709295 294.963878 
-L 75.244975 294.215635 
-L 75.894284 292.902661 
-L 76.689687 290.759825 
-L 78.280495 286.286775 
-L 79.546647 283.48708 
-L 80.63424 281.552036 
-L 81.819229 279.865189 
-L 82.95552 278.605611 
-L 84.02688 277.68403 
-L 85.195636 276.919409 
-L 86.510487 276.300182 
-L 87.890269 275.846363 
-L 95.487185 274.039245 
-L 98.019491 272.999561 
-L 100.292073 271.798325 
-L 105.340451 268.814909 
-L 108.895418 267.139989 
-L 110.973207 266.559738 
-L 112.661411 266.356198 
-L 114.349615 266.394092 
-L 115.843025 266.617899 
-L 117.790953 267.137312 
-L 119.836276 267.880744 
-L 122.839331 269.093443 
-L 124.689862 269.959975 
-L 126.605324 270.815176 
-L 127.692916 271.047605 
-L 129.251258 271.079227 
-L 131.020625 270.9199 
-L 132.887389 270.551979 
-L 134.689222 270.022689 
-L 142.529629 267.321835 
-L 144.932073 266.914769 
-L 146.474182 266.851119 
-L 148.259782 266.971985 
-L 150.223942 267.311043 
-L 152.496524 268.030142 
-L 153.48672 268.729093 
-L 154.752873 269.89763 
-L 157.512436 272.498308 
-L 158.697425 273.251033 
-L 159.703855 273.598413 
-L 160.564189 273.65847 
-L 161.456989 273.488229 
-L 162.41472 273.057311 
-L 167.252073 270.391132 
-L 169.833076 269.335287 
-L 171.34272 268.876005 
-L 173.469207 268.45727 
-L 175.043782 268.33577 
-L 175.952815 268.49864 
-L 176.926778 268.91798 
-L 178.079302 269.678648 
-L 179.491549 270.862477 
-L 182.348509 273.299473 
-L 183.728291 274.153167 
-L 184.815884 274.58187 
-L 185.968407 274.781269 
-L 187.023535 274.747671 
-L 188.387084 274.454907 
-L 190.675898 273.636368 
-L 192.656291 273.000392 
-L 193.857513 272.802476 
-L 195.042502 272.8098 
-L 196.130095 273.008594 
-L 197.493644 273.504902 
-L 199.181847 274.420005 
-L 204.230225 277.464475 
-L 205.837265 278.043609 
-L 207.395607 278.343484 
-L 208.856553 278.428128 
-L 214.749033 278.573183 
-L 216.599564 279.039299 
-L 218.872145 279.937349 
-L 223.433542 281.968344 
-L 225.689891 282.643138 
-L 227.394327 282.948837 
-L 229.894167 283.193454 
-L 233.627695 283.636375 
-L 236.306095 284.275657 
-L 239.844829 285.42226 
-L 242.458298 286.185096 
-L 245.299025 286.750738 
-L 248.042356 287.082703 
-L 251.905745 287.54519 
-L 255.476945 288.262384 
-L 259.421498 289.150306 
-L 262.960233 289.675477 
-L 271.433716 290.623291 
-L 278.511185 291.585645 
-L 289.792931 292.600344 
-L 293.802415 292.95951 
-L 319.482589 294.395256 
-L 338.377484 294.937311 
-L 345.471185 295.068783 
-L 362.158429 295.340211 
-L 398.487273 295.486082 
-L 398.487273 295.486082 
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #0000ff; stroke-width: 1.5"/>
-   </g>
-   <g id="line2d_32">
-    <path d="M 73.832727 295.457856 
-L 75.878051 295.347759 
-L 77.046807 295.05264 
-L 78.215564 294.514317 
-L 79.56288 293.635863 
-L 81.153687 292.319528 
-L 83.117847 290.390233 
-L 85.731316 287.48953 
-L 89.692102 282.7271 
-L 94.91904 276.099954 
-L 98.84736 270.778756 
-L 102.191302 265.874838 
-L 105.519011 260.589675 
-L 109.285004 254.17043 
-L 123.553571 229.378983 
-L 127.335796 223.515648 
-L 136.052771 210.182342 
-L 140.305745 203.183769 
-L 145.565149 194.058287 
-L 153.454255 180.389161 
-L 156.181353 176.109896 
-L 158.973382 172.158873 
-L 165.304145 163.363338 
-L 168.907811 157.817282 
-L 173.615302 150.12959 
-L 179.410385 140.697249 
-L 182.137484 136.756952 
-L 185.384029 132.483878 
-L 191.747258 124.17354 
-L 201.097309 111.572341 
-L 204.149062 108.027732 
-L 208.353338 103.525053 
-L 218.547491 92.981538 
-L 221.842735 89.956818 
-L 225.349004 87.049984 
-L 230.738269 82.910733 
-L 236.273629 78.8901 
-L 239.974691 76.473223 
-L 243.805615 74.245646 
-L 249.065018 71.467558 
-L 254.519215 68.81327 
-L 258.65856 67.046515 
-L 263.430982 65.26745 
-L 269.794211 63.13837 
-L 274.745193 61.705255 
-L 280.377949 60.323484 
-L 287.082065 58.901092 
-L 293.007011 57.864695 
-L 300.685091 56.767905 
-L 307.681396 55.976306 
-L 316.917818 55.169727 
-L 326.073076 54.605245 
-L 336.86784 54.142291 
-L 351.103942 53.776527 
-L 368.083375 53.601914 
-L 395.743942 53.576917 
-L 398.487273 53.581896 
-L 398.487273 53.581896 
-" clip-path="url(#p9c99ab5347)" style="fill: none; stroke: #ff0000; stroke-width: 1.5; stroke-linecap: square"/>
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+    <path d="M 73.832727 295.486151 
+L 75.878051 295.376104 
+L 77.046807 295.080968 
+L 78.118167 294.577837 
+L 79.335622 293.751987 
+L 80.780335 292.48887 
+L 82.533469 290.642753 
+L 84.789818 287.921025 
+L 94.529455 275.381841 
+L 97.435113 271.260427 
+L 100.324538 266.772063 
+L 103.295127 261.737891 
+L 106.557905 255.755328 
+L 110.81088 247.451954 
+L 119.609018 230.176662 
+L 122.579607 224.840393 
+L 125.566429 219.962448 
+L 130.760902 211.531015 
+L 134.445731 205.068621 
+L 138.48768 197.511558 
+L 150.077847 175.515227 
+L 152.658851 171.445413 
+L 159.265571 161.273602 
+L 162.609513 155.480624 
+L 170.514851 141.572948 
+L 173.258182 137.437849 
+L 183.890618 121.888486 
+L 187.283258 116.999898 
+L 190.107753 113.329046 
+L 193.889978 108.823088 
+L 204.035433 97.14446 
+L 207.087185 94.111146 
+L 211.453789 90.128653 
+L 218.011811 84.417077 
+L 221.33952 81.826404 
+L 225.056815 79.232776 
+L 231.176553 75.269691 
+L 235.234735 72.876089 
+L 239.098124 70.866353 
+L 244.438691 68.363127 
+L 249.470836 66.221164 
+L 253.772509 64.636079 
+L 259.437731 62.806051 
+L 264.956858 61.233076 
+L 270.183796 59.986172 
+L 277.098938 58.574614 
+L 283.251142 57.545407 
+L 290.377309 56.584885 
+L 297.974225 55.766956 
+L 307.243113 55.03895 
+L 316.268509 54.529027 
+L 328.735244 54.059967 
+L 342.857716 53.779995 
+L 363.586909 53.614889 
+L 398.487273 53.568127 
+L 398.487273 53.568127 
+" clip-path="url(#pef365e007b)" style="fill: none; stroke: #ff0000; stroke-width: 1.5; stroke-linecap: square"/>
    </g>
    <g id="patch_3">
     <path d="M 57.6 307.584 
@@ -1254,7 +942,7 @@ L 414.72 41.472
    </g>
    <g id="text_18">
     <!-- x vs time -->
-    <g transform="translate(208.562813 35.472) scale(0.12 -0.12)">
+    <g transform="translate(208.562813 35.472)scale(0.12 -0.12)">
      <defs>
       <path id="DejaVuSans-76" d="M 191 3500 
 L 800 3500 
@@ -1300,7 +988,7 @@ L 341.11375 54.570438
     </g>
     <g id="text_19">
      <!-- x_dot (m/s) -->
-     <g transform="translate(349.11375 58.070438) scale(0.1 -0.1)">
+     <g transform="translate(349.11375 58.070438)scale(0.1 -0.1)">
       <defs>
        <path id="DejaVuSans-5f" d="M 3263 -1063 
 L 3263 -1509 
@@ -1385,7 +1073,7 @@ L 341.11375 69.526688
     </g>
     <g id="text_20">
      <!-- x (m) -->
-     <g transform="translate(349.11375 73.026688) scale(0.1 -0.1)">
+     <g transform="translate(349.11375 73.026688)scale(0.1 -0.1)">
       <use xlink:href="#DejaVuSans-78"/>
       <use xlink:href="#DejaVuSans-20" x="59.179688"/>
       <use xlink:href="#DejaVuSans-28" x="90.966797"/>
@@ -1397,11 +1085,7 @@ L 341.11375 69.526688
   </g>
  </g>
  <defs>
-<<<<<<< HEAD:Simulasi/Simulasi Gantry Motor ICCAS/Gambar/constrained x vs time.svg
-  <clipPath id="p7eb344a4ba">
-=======
-  <clipPath id="p9c99ab5347">
->>>>>>> c9fb82ef7b11c5df19a036069bad4fbb839e7904:Simulasi/Simulasi Gantry Motor/Gambar/constrained x vs time.svg
+  <clipPath id="pef365e007b">
    <rect x="57.6" y="41.472" width="357.12" height="266.112"/>
   </clipPath>
  </defs>

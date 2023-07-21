@@ -11,6 +11,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import pandas as pd
+import os
+
+absolute_folder_path = os.path.abspath(os.path.dirname(__file__))
+relative_folder_path = "Gambar/"
+folder_path = os.path.join(absolute_folder_path, relative_folder_path)
 
 # Fungsi untuk mendapatkan nilai sign dari matriks S (sliding surface)
 def sign_matrix(X):
@@ -245,7 +250,7 @@ for j in range (variation_number):
         # Buat variabel untuk sliding surface dan control
         sliding_surface_now = np.matrix([[Sx[i]], [Sl[i]]])
         sliding_surface_now = (
-            np.matmul(matrix_alpha, (q_now - q_desired)) # type: ignore
+            np.matmul(matrix_alpha, np.subtract(q_now, q_desired))
             + np.matmul(matrix_beta, q_dot_now)
             + q_dot_dot_now
             + matrix_lambda * theta[i]
@@ -264,7 +269,7 @@ for j in range (variation_number):
             constrained = True
             scenario_name = "constrained"
             # ... maka control yang dihasilkan akan dibatasi oleh control limit
-            control_now = np.clip(control_now, -control_limit, control_limit) # type: ignore
+            control_now = np.clip(control_now, -control_limit, control_limit)
 
         # Update x_dot_dot, l_dot_dot, theta_dot_dot...
         # ... menggunakan persamaan state space
@@ -392,8 +397,6 @@ for j in range (variation_number):
         # print(len(time))
         # print(theta_dot_dot)
 
-        plot_folder_path = "Simulasi Gantry Motor ICCAS/Gambar/"
-
         # Plotting
         plt.figure(scenario_name + " x vs time")
         plt.plot(time, x_dot, "b--", label="x_dot (m/s)")
@@ -403,8 +406,8 @@ for j in range (variation_number):
         plt.ylabel("x")
         plt.title("x vs time")
         plt.grid(True)
-        plt.savefig(plot_folder_path + scenario_name + " x vs time.svg", format='svg', transparent=True)
-        plt.savefig(plot_folder_path + scenario_name + " x vs time.png")
+        plt.savefig(folder_path + scenario_name + " x vs time.svg", format='svg', transparent=True)
+        plt.savefig(folder_path + scenario_name + " x vs time.png")
 
         plt.figure(scenario_name + " l vs time")
         plt.plot(time, l_dot, "g--", label="l_dot (m/s)")
@@ -414,8 +417,8 @@ for j in range (variation_number):
         plt.ylabel("l")
         plt.title("l vs time")
         plt.grid(True)
-        plt.savefig(plot_folder_path + scenario_name + " l vs time.svg", format='svg', transparent=True)
-        plt.savefig(plot_folder_path + scenario_name + " l vs time.png")
+        plt.savefig(folder_path + scenario_name + " l vs time.svg", format='svg', transparent=True)
+        plt.savefig(folder_path + scenario_name + " l vs time.png")
 
         plt.figure(scenario_name + " theta vs time")
         plt.plot(time, theta_dot, "r--", label="theta_dot (degree/s)")
@@ -425,8 +428,8 @@ for j in range (variation_number):
         plt.ylabel("theta")
         plt.title("theta vs time")
         plt.grid(True)
-        plt.savefig(plot_folder_path + scenario_name + " theta vs time.svg", format='svg', transparent=True)
-        plt.savefig(plot_folder_path + scenario_name + " theta vs time.png")
+        plt.savefig(folder_path + scenario_name + " theta vs time.svg", format='svg', transparent=True)
+        plt.savefig(folder_path + scenario_name + " theta vs time.png")
 
         plt.figure(scenario_name + " u1 vs time")
         plt.plot(time, Ux, "r", label="u1 (volt)")
@@ -436,8 +439,8 @@ for j in range (variation_number):
         plt.ylabel("u1 Response")
         plt.title("u1 vs time")
         plt.grid(True)
-        plt.savefig(plot_folder_path + scenario_name + " u1 vs time.svg", format='svg', transparent=True)
-        plt.savefig(plot_folder_path + scenario_name + " u1 vs time.png")
+        plt.savefig(folder_path + scenario_name + " u1 vs time.svg", format='svg', transparent=True)
+        plt.savefig(folder_path + scenario_name + " u1 vs time.png")
 
         plt.figure(scenario_name + " u2 vs time")
         plt.plot(time, Ul, "r", label="u2 (volt)")
@@ -447,8 +450,8 @@ for j in range (variation_number):
         plt.ylabel("u2 Response")
         plt.title("u2 vs time")
         plt.grid(True)
-        plt.savefig(plot_folder_path + scenario_name + " u2 vs time.svg", format='svg', transparent=True)
-        plt.savefig(plot_folder_path + scenario_name + " u2 vs time.png")
+        plt.savefig(folder_path + scenario_name + " u2 vs time.svg", format='svg', transparent=True)
+        plt.savefig(folder_path + scenario_name + " u2 vs time.png")
 
         plt.figure(scenario_name + " state vs time")
         plt.plot(time, x, "r", label="x (m)")
@@ -459,8 +462,8 @@ for j in range (variation_number):
         plt.ylabel("State")
         plt.title("State vs time")
         plt.grid(True)
-        plt.savefig(plot_folder_path + scenario_name + " state vs time.svg", format='svg', transparent=True)
-        plt.savefig(plot_folder_path + scenario_name + " state vs time.png")
+        plt.savefig(folder_path + scenario_name + " state vs time.svg", format='svg', transparent=True)
+        plt.savefig(folder_path + scenario_name + " state vs time.png")
 
         print ("Plotting Done!")
 
@@ -468,6 +471,8 @@ for j in range (variation_number):
 
 # Simpan hasil analisis ke dalam file excel
 print ("Saving result to excel...")
+filename = "result.xlsx"
+save_path = os.path.join(absolute_folder_path, filename)
 df = pd.DataFrame(result)
-df.to_excel("Simulasi Gantry Motor ICCAS/result.xlsx", index=False)
+df.to_excel(save_path, index=False)
     
