@@ -106,18 +106,18 @@ int main(int argc, char *argv[])
         const rs2::vertex* vertices = points.get_vertices();
         const int num_vertices = points.size();
 
-        // auto sp = points.get_profile().as<rs2::video_stream_profile>();
-        // cloud->width = sp.width();
-        // cloud->height = sp.height();
-        // cloud->points.resize(cloud->width * cloud->height);
+        auto sp = points.get_profile().as<rs2::video_stream_profile>();
+        cloud->width = sp.width();
+        cloud->height = sp.height();
+        cloud->points.resize(cloud->width * cloud->height);
 
-        // auto ptr = points.get_vertices();
-        // for (auto& point : *cloud) {
-        //     point.x = ptr->x;
-        //     point.y = ptr->y;
-        //     point.z = ptr->z;
-        //     ptr++;
-        // }
+        auto ptr = points.get_vertices();
+        for (auto& point : *cloud) {
+            point.x = ptr->x;
+            point.y = ptr->y;
+            point.z = ptr->z;
+            ptr++;
+        }
 
         // pcl::SACSegmentation<pcl::PointXYZ> seg;
         // seg.setModelType(pcl::SACMODEL_PLANE);

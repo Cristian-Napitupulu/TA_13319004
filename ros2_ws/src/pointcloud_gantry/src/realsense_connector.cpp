@@ -1,67 +1,61 @@
-#include "../include/realsense_connector.h"
+#include "../include/pointcloud_gantry/realsense_connector.h"
 
-REALSENSE_DEVICE::REALSENSE_DEVICE(int color_mode_, int width_, int height_, int fps_) : REALSENSE_DEVICE::REALSENSE_DEVICE()
+REALSENSE_DEVICE::REALSENSE_DEVICE(int color_mode, int frame_width, int frame_height, int fps, float min_distance, float max_distance) : color_mode_(color_mode), frame_width_(frame_width), frame_height_(frame_height), fps_(fps), min_distance_(min_distance), max_distance_(max_distance)
 {
-    this->color_mode = color_mode_;
-    this->width = width_;
-    this->height = height_;
-    this->fps = fps_;
-
-    configuration.enable_stream(RS2_STREAM_DEPTH, width, height, RS2_FORMAT_Z16, fps);
-    colorizer.set_option(RS2_OPTION_COLOR_SCHEME, color_mode);
-
-    pipe.start(configuration);
-
-    REALSENSE_DEVICE::set_distance_range(min_distance, max_distance);
+    this->color_mode_ = color_mode;
+    this->frame_width_ = frame_width;
+    this->frame_height_ = frame_height;
+    this->fps_ = fps;
+    this->min_distance_ = min_distance;
+    this->max_distance_ = max_distance;
 }
 
-void REALSENSE_DEVICE::set_distance_range(float min_distance_, float max_distance_)
+void REALSENSE_DEVICE::initialize()
 {
-    this->min_distance = min_distance_;
-    this->max_distance = max_distance_;
+    context_ = rs2::context();
+    this->configuration_.enable_stream(RS2_STREAM_DEPTH, this->frame_width_, this->frame_height_, RS2_FORMAT_Z16, this->fps_);
+    this->pipeline_.start(this->configuration_);
 
-    depth_sensor = pipe.get_active_profile().get_device().first<rs2::depth_sensor>();
-    depth_sensor.set_option(RS2_OPTION_MIN_DISTANCE, min_distance);
-    depth_sensor.set_option(RS2_OPTION_MAX_DISTANCE, max_distance);
-    threshold_filter.set_option(RS2_OPTION_MIN_DISTANCE, min_distance);
-    threshold_filter.set_option(RS2_OPTION_MAX_DISTANCE, max_distance);
-}
+    this->colorizer_.set_option(RS2_OPTION_COLOR_SCHEME, this->color_mode_);
 
-bool REALSENSE_DEVICE::wait_for_frames()
-{
-    frames = pipe.wait_for_frames();
-    return true;
+    this->threshold_filter_.set_option(RS2_OPTION_MIN_DISTANCE, this->min_distance_);
+    this->threshold_filter_.set_option(RS2_OPTION_MAX_DISTANCE, this->max_distance_);
 }
 
 rs2::frame REALSENSE_DEVICE::get_depth_frame()
 {
-    if (REALSENSE_DEVICE::wait_for_frames())
-    {
-        rs2::frame depth_frame = frames.get_depth_frame();
-        depth_frame = threshold_filter.process(depth_frame);
-        depth_frame = colorizer.colorize(depth_frame);
-        return depth_frame;
-    }
-    else
-    {
-        std::cout << "Error: Could not get depth frame" << std::endl;
-        return rs2::frame();
-    }
+    frames_ = this->pipeline_.wait_for_frames();
+    rs2::frame depth_frame = frames_.get_depth_frame();
+    rs2::frame depth_frame_ = this->threshold_filter_.process(depth_frame);
+    return depth_frame_;
 }
 
-pcl::PointCloud<pcl::PointXYZ>::Ptr REALSENSE_DEVICE::get_pointcloud()
+void REALSENSE_DEVICE::get_pointcloud(rs2::frame depth_frame_input, pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_pointcloud_output)
 {
-    rs2::frame depth_frame = REALSENSE_DEVICE::get_depth_frame();
-    points = pointcloud.calculate(depth_frame);
-    const rs2::vertex *vertices = points.get_vertices();
-    pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_pointcloud(new pcl::PointCloud<pcl::PointXYZ>);
-    for (int i = 0; i < points.size(); i++)
+    realsense_points = realsense_pointcloud.calculate(depth_frame_input);
+    const rs2::vertex *vertices = this->realsense_points.get_vertices();
+    for (int i = 0; i < (int)realsense_points.size(); i++)
     {
-        pcl_pointcloud->points[i].x = vertices[i].x;
-        pcl_pointcloud->points[i].y = vertices[i].y;
-        pcl_pointcloud->points[i].z = vertices[i].z;
-        pcl_pointcloud->push_back(pcl_pointcloud->points[i]);
+        pcl::PointXYZ pcl_point;
+        pcl_point.x = vertices[i].x;
+        pcl_point.y = vertices[i].y;
+        pcl_point.z = vertices[i].z;
+        pcl_pointcloud_output->push_back(pcl_point);
     }
-    return pcl_pointcloud;
 }
 
+rs2::frame REALSENSE_DEVICE::get_colorized_depth_frame(rs2::frame depth_frame)
+{
+    rs2::frame depth_frame_ = depth_frame.apply_filter(this->colorizer_);
+    return depth_frame_;
+}
+
+int REALSENSE_DEVICE::get_frame_width()
+{
+    return this->frame_width_;
+}
+
+int REALSENSE_DEVICE::get_frame_height()
+{
+    return this->frame_height_;
+}
