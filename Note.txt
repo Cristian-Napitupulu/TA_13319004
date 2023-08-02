@@ -1,0 +1,6 @@
+Sudah dicoba:
+- SE-SSD, gagal karena codenya tidak backward compatible.
+Cuda 10.2, Ubuntu 18.04, ROS2 
+- OpenCV
+- Shadow Detection
+- 
