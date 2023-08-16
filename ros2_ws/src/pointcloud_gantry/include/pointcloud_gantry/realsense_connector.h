@@ -1,10 +1,11 @@
 #ifndef REALSENSE_CONNECTOR_H
 #define REALSENSE_CONNECTOR_H
 
+#include <iostream>
 #include <librealsense2/rs.hpp>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
-#include <iostream>
+
 
 class REALSENSE_DEVICE
 {
@@ -14,9 +15,11 @@ public:
     ~REALSENSE_DEVICE() = default;
     void initialize();
     rs2::frame get_depth_frame();
-    void get_pointcloud(rs2::frame depth_frame_input, pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_pointcloud_output);
+    void calculate_pointcloud(rs2::frame depth_frame);
     rs2::frame get_colorized_depth_frame(rs2::frame depth_frame);
-    
+    pcl::PointCloud<pcl::PointXYZ>::Ptr pointcloud();
+
+
     int get_frame_width();
     int get_frame_height();
 
@@ -36,6 +39,7 @@ private:
     rs2::frameset frames_;
     rs2::pointcloud realsense_pointcloud;
     rs2::points realsense_points;
+    pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_pointcloud_;
 };
 
 #endif // REALSENSE_CONNECTOR_H

@@ -15,7 +15,7 @@ find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 find_package(realsense2 REQUIRED)
-find_package(PCL 1.12 REQUIRED)
+find_package(PCL 1.13 REQUIRED)
 find_package(OpenCV REQUIRED)
 
 include_directories(${PCL_INCLUDE_DIRS})

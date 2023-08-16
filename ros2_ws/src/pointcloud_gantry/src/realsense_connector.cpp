@@ -30,18 +30,32 @@ rs2::frame REALSENSE_DEVICE::get_depth_frame()
     return depth_frame_;
 }
 
-void REALSENSE_DEVICE::get_pointcloud(rs2::frame depth_frame_input, pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_pointcloud_output)
+void REALSENSE_DEVICE::calculate_pointcloud(rs2::frame depth_frame)
 {
-    realsense_points = realsense_pointcloud.calculate(depth_frame_input);
+    this->realsense_points = this->realsense_pointcloud.calculate(depth_frame);
     const rs2::vertex *vertices = this->realsense_points.get_vertices();
-    for (int i = 0; i < (int)realsense_points.size(); i++)
+
+    this->pcl_pointcloud_ = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>);
+    for (int i = 0; i < (this->frame_width_ * this->frame_height_); i++)
     {
+        if (
+            (vertices[i].x == 0.0) &&
+            (vertices[i].y == 0.0) &&
+            (vertices[i].z == 0.0))
+        {
+            continue;
+        }
         pcl::PointXYZ pcl_point;
         pcl_point.x = vertices[i].x;
         pcl_point.y = vertices[i].y;
         pcl_point.z = vertices[i].z;
-        pcl_pointcloud_output->push_back(pcl_point);
+        this->pcl_pointcloud_->push_back(pcl_point);
     }
+}
+
+pcl::PointCloud<pcl::PointXYZ>::Ptr REALSENSE_DEVICE::pointcloud()
+{
+    return this->pcl_pointcloud_;
 }
 
 rs2::frame REALSENSE_DEVICE::get_colorized_depth_frame(rs2::frame depth_frame)

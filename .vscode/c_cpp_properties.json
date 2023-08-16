@@ -9,8 +9,9 @@
                 "/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
                 "/usr/include/x86_64-linux-gnu/qt5/QtGui",
                 "/usr/include/x86_64-linux-gnu/qt5/QtCore",
-                "/usr/include/pcl-1.12",
-                "/usr/include/eigen3"
+                "/usr/local/include/pcl-1.13/",
+                "/usr/include/eigen3",
+                "/usr/include/vtk-9.1"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

@@ -75,6 +75,7 @@ int main(int argc, char *argv[])
     rs2::depth_sensor depth_sensor = pipe.get_active_profile().get_device().first<rs2::depth_sensor>();
     depth_sensor.set_option(RS2_OPTION_ENABLE_MAX_USABLE_RANGE, 0);
     depth_sensor.set_option(RS2_OPTION_MIN_DISTANCE, min_distance);
+    // depth_sensor.set_option(RS2_OPTION_MAX_DISTANCE, max_distance);
 
     rs2::threshold_filter threshold_filter;
     threshold_filter.set_option(RS2_OPTION_MAX_DISTANCE, max_distance);
@@ -102,9 +103,9 @@ int main(int argc, char *argv[])
         // Generate the pointcloud
         points = pointcloud.calculate(filtered_frame);
 
-        // Get the vertices and texture coordinates
-        const rs2::vertex* vertices = points.get_vertices();
-        const int num_vertices = points.size();
+        // // Get the vertices and texture coordinates
+        // const rs2::vertex* vertices = points.get_vertices();
+        // const int num_vertices = points.size();
 
         auto sp = points.get_profile().as<rs2::video_stream_profile>();
         cloud->width = sp.width();
@@ -160,92 +161,92 @@ int main(int argc, char *argv[])
         // }
 
 
-        // Remove all vertices with a Z-coordinate of 0 (to remove depth noise)
-        std::vector<rs2::vertex> vertices_filtered;
-        for (int i = 0; i < num_vertices; i++) {
-            if (vertices[i].z != 0) {
-                vertices_filtered.push_back(vertices[i]);
-            }
-        }
+        // // Remove all vertices with a Z-coordinate of 0 (to remove depth noise)
+        // std::vector<rs2::vertex> vertices_filtered;
+        // for (int i = 0; i < num_vertices; i++) {
+        //     if (vertices[i].z != 0) {
+        //         vertices_filtered.push_back(vertices[i]);
+        //     }
+        // }
 
-        // Sort the vertices by Z-coordinate (from smallest to largest)
-        std::sort(vertices_filtered.begin(), vertices_filtered.end(), compareVerticesZ);
+        // // Sort the vertices by Z-coordinate (from smallest to largest)
+        // std::sort(vertices_filtered.begin(), vertices_filtered.end(), compareVerticesZ);
 
-        // Get the vertices with certain threshold value between each Z-coordinate value
-        const float threshold_Z = 0.1f; // meters
-        std::vector<rs2::vertex> vertices_threshold_Z;
-        for (int i = 0; i < (int) vertices_filtered.size(); i++) {
-            if (vertices_filtered[i].z - vertices_filtered[i - 1].z < threshold_Z) {
-                vertices_threshold_Z.push_back(vertices_filtered[i]);
-            }
-        }
+        // // Get the vertices with certain threshold value between each Z-coordinate value
+        // const float threshold_Z = 0.1f; // meters
+        // std::vector<rs2::vertex> vertices_threshold_Z;
+        // for (int i = 0; i < (int) vertices_filtered.size(); i++) {
+        //     if (vertices_filtered[i].z - vertices_filtered[i - 1].z < threshold_Z) {
+        //         vertices_threshold_Z.push_back(vertices_filtered[i]);
+        //     }
+        // }
 
-        // Sort the vertices by Y-coordinate (from smallest to largest)
-        std::sort(vertices_threshold_Z.begin(), vertices_threshold_Z.end(), compareVerticesY);
+        // // Sort the vertices by Y-coordinate (from smallest to largest)
+        // std::sort(vertices_threshold_Z.begin(), vertices_threshold_Z.end(), compareVerticesY);
 
-        // Get the vertices with certain threshold value between each Y-coordinate value
-        const float threshold_Y = 0.1f; // meters
-        std::vector<rs2::vertex> vertices_threshold_Y;
-        for (int i = 0; i < (int) vertices_threshold_Z.size(); i++) {
-            if (vertices_threshold_Z[i].y - vertices_threshold_Z[i - 1].y < threshold_Y) {
-                vertices_threshold_Y.push_back(vertices_threshold_Z[i]);
-            }
-        }
+        // // Get the vertices with certain threshold value between each Y-coordinate value
+        // const float threshold_Y = 0.1f; // meters
+        // std::vector<rs2::vertex> vertices_threshold_Y;
+        // for (int i = 0; i < (int) vertices_threshold_Z.size(); i++) {
+        //     if (vertices_threshold_Z[i].y - vertices_threshold_Z[i - 1].y < threshold_Y) {
+        //         vertices_threshold_Y.push_back(vertices_threshold_Z[i]);
+        //     }
+        // }
 
-        // Sort the vertices by X-coordinate (from smallest to largest)
-        std::sort(vertices_threshold_Y.begin(), vertices_threshold_Y.end(), compareVerticesX);
+        // // Sort the vertices by X-coordinate (from smallest to largest)
+        // std::sort(vertices_threshold_Y.begin(), vertices_threshold_Y.end(), compareVerticesX);
 
-        // Get the vertices with certain threshold value between each X-coordinate value
-        const float threshold_X = 0.1f; // meters
-        std::vector<rs2::vertex> vertices_threshold_X;
-        for (int i = 0; i < (int) vertices_threshold_Y.size(); i++) {
-            if (vertices_threshold_Y[i].x - vertices_threshold_Y[i - 1].x < threshold_X) {
-                vertices_threshold_X.push_back(vertices_threshold_Y[i]);
-            }
-        }
+        // // Get the vertices with certain threshold value between each X-coordinate value
+        // const float threshold_X = 0.1f; // meters
+        // std::vector<rs2::vertex> vertices_threshold_X;
+        // for (int i = 0; i < (int) vertices_threshold_Y.size(); i++) {
+        //     if (vertices_threshold_Y[i].x - vertices_threshold_Y[i - 1].x < threshold_X) {
+        //         vertices_threshold_X.push_back(vertices_threshold_Y[i]);
+        //     }
+        // }
                
-        // Get average value of the X, Y, and Z coordinates
-        float x = 0.0f;
-        float y = 0.0f;
-        float z = 0.0f;
-        for (int i = 0; i < (int) vertices_threshold_X.size(); i++) {
-            x += vertices_threshold_X[i].x;
-            y += vertices_threshold_X[i].y;
-            z += vertices_threshold_X[i].z;
-        }
-        x /= (int) vertices_threshold_X.size();
-        y /= (int) vertices_threshold_X.size();
-        z /= (int) vertices_threshold_X.size();
+        // // Get average value of the X, Y, and Z coordinates
+        // float x = 0.0f;
+        // float y = 0.0f;
+        // float z = 0.0f;
+        // for (int i = 0; i < (int) vertices_threshold_X.size(); i++) {
+        //     x += vertices_threshold_X[i].x;
+        //     y += vertices_threshold_X[i].y;
+        //     z += vertices_threshold_X[i].z;
+        // }
+        // x /= (int) vertices_threshold_X.size();
+        // y /= (int) vertices_threshold_X.size();
+        // z /= (int) vertices_threshold_X.size();
                 
-        // Make moving average of the vertices X, Y, and Z coordinates
-        float x_moving_average = 0.0f;
-        float y_moving_average = 0.0f;
-        float z_moving_average = 0.0f;
-        static int num_frames = 0;
-        static float x_sum = 0.0f;
-        static float y_sum = 0.0f;
-        static float z_sum = 0.0f;
-        if (num_frames < 10) {
-            x_sum += x;
-            y_sum += y;
-            z_sum += z;
-            num_frames++;
-        }
-        else {
-            x_sum -= x_moving_average;
-            y_sum -= y_moving_average;
-            z_sum -= z_moving_average;
-            x_sum += x;
-            y_sum += y;
-            z_sum += z;
-            x_moving_average = x_sum / 10;
-            y_moving_average = y_sum / 10;
-            z_moving_average = z_sum / 10;
-        }
+        // // Make moving average of the vertices X, Y, and Z coordinates
+        // float x_moving_average = 0.0f;
+        // float y_moving_average = 0.0f;
+        // float z_moving_average = 0.0f;
+        // static int num_frames = 0;
+        // static float x_sum = 0.0f;
+        // static float y_sum = 0.0f;
+        // static float z_sum = 0.0f;
+        // if (num_frames < 10) {
+        //     x_sum += x;
+        //     y_sum += y;
+        //     z_sum += z;
+        //     num_frames++;
+        // }
+        // else {
+        //     x_sum -= x_moving_average;
+        //     y_sum -= y_moving_average;
+        //     z_sum -= z_moving_average;
+        //     x_sum += x;
+        //     y_sum += y;
+        //     z_sum += z;
+        //     x_moving_average = x_sum / 10;
+        //     y_moving_average = y_sum / 10;
+        //     z_moving_average = z_sum / 10;
+        // }
 
 
-        // Print the average X, Y, and Z coordinates
-        std::cout << "X: " << x << " Y: " << y << " Z: " << z << std::endl;
+        // // Print the average X, Y, and Z coordinates
+        // std::cout << "X: " << x << " Y: " << y << " Z: " << z << std::endl;
 
 
         // Convert the RealSense depth frame to an OpenCV Mat
