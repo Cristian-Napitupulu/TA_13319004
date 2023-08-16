@@ -49,7 +49,7 @@ def rise_time(data, setpoint):
         if abs(data[i] - setpoint) <= (1 - end_rise_time_percentage) * amplitude:
             end_rise_time = i * dt
             break
-    return round(end_rise_time - begin_rise_time, 3)
+    return str(round(end_rise_time - begin_rise_time, 5))
 
 # Fungsi untuk mendapatkan nilai settling time
 def settling_time(data, setpoint, error_max=0.0):
@@ -63,7 +63,7 @@ def settling_time(data, setpoint, error_max=0.0):
         if abs(data[i] - setpoint) >= amplitude:
             settling_time = i * dt
             break
-    return round(settling_time, 3)
+    return str(round(settling_time, 5))
 
 # Fungsi untuk mendapatkan nilai RMSE steady state
 def rmse_steady_state(data, setpoint, error_max=0.0):
@@ -81,7 +81,7 @@ def rmse_steady_state(data, setpoint, error_max=0.0):
     sum_squared_error = 0.0
     for i in range (len(data)-1, settling_index, -1):
         sum_squared_error += (data[i] - setpoint) ** 2
-    return round(np.sqrt(sum_squared_error / (len(data) - settling_index)), 3)
+    return str(round(np.sqrt(sum_squared_error / (len(data) - settling_index)), 5))
 
 # Physical Parameter
 # Gantry
