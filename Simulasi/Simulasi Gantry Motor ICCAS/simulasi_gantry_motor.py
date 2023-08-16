@@ -115,23 +115,23 @@ scenario_name = "unconstrained"
 
 # Control Parameter
 # Parameter for theta
-lambda1 = 15.0
+lambda1 = 20.0
 lambda2 = 1.0
 matrix_lambda = np.matrix([[lambda1], [lambda2]])
 
 # Parameter for x and l
-alpha1 = 1.5
-alpha2 = 2.5
+alpha1 = 10.0
+alpha2 = 5.0
 matrix_alpha = np.matrix([[alpha1, 0.0], [0.0, alpha2]])
 
 # Parameter for x_dot and l_dot
-beta1 = 5.0
+beta1 = 10.0
 beta2 = 5.0
 matrix_beta = np.matrix([[beta1, 0.0], [0.0, beta2]])
 
 # K must be > 0
-k1 = 0.3
-k2 = 0.1
+k1 = 0.01
+k2 = 0.01
 k = [[k1], [k2]]
 # k = 0.0005
 
@@ -141,8 +141,8 @@ k = [[k1], [k2]]
 # print("k: \n", k)
 
 # Simulation Parameter
-dt = 0.001
-timeout_duration = 30.0
+dt = 0.0001
+timeout_duration = 15.0
 steady_state_checking_duration_window = 1.0
 
 
