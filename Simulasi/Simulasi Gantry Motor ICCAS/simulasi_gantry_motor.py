@@ -120,18 +120,18 @@ lambda2 = 1.0
 matrix_lambda = np.matrix([[lambda1], [lambda2]])
 
 # Parameter for x and l
-alpha1 = 0.5
+alpha1 = 1.5
 alpha2 = 2.5
 matrix_alpha = np.matrix([[alpha1, 0.0], [0.0, alpha2]])
 
 # Parameter for x_dot and l_dot
-beta1 = 2.0
+beta1 = 5.0
 beta2 = 5.0
 matrix_beta = np.matrix([[beta1, 0.0], [0.0, beta2]])
 
 # K must be > 0
-k1 = 0.003
-k2 = 0.01
+k1 = 0.3
+k2 = 0.1
 k = [[k1], [k2]]
 # k = 0.0005
 
@@ -142,7 +142,7 @@ k = [[k1], [k2]]
 
 # Simulation Parameter
 dt = 0.001
-timeout_duration = 20.0
+timeout_duration = 30.0
 steady_state_checking_duration_window = 1.0
 
 
