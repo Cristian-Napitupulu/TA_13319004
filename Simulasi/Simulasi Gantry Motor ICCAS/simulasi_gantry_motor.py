@@ -83,6 +83,10 @@ def rmse_steady_state(data, setpoint, error_max=0.0):
         sum_squared_error += (data[i] - setpoint) ** 2
     return str(round(np.sqrt(sum_squared_error / (len(data) - settling_index)), 5))
 
+def get_max_aplitude(data):
+    abs_data = [abs(i) for i in data]
+    return str(round(max(abs_data), 5))
+
 # Physical Parameter
 # Gantry
 mc = 2.0
@@ -382,6 +386,7 @@ for j in range (variation_number):
             "RMSE l (m)": rmse_steady_state(l, y_desired[1, 0]),
             "Settling time theta (s)": settling_time(theta, y_desired[2, 0], error_max= theta_max_error),
             "RMSE theta (degree)": rmse_steady_state(theta, y_desired[2, 0], error_max= theta_max_error),
+            "Max Amplitude (degree)": get_max_aplitude(theta),
         }
     )
 
