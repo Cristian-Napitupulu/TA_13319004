@@ -145,7 +145,7 @@ k = [[k1], [k2]]
 # print("k: \n", k)
 
 # Simulation Parameter
-dt = 0.0001
+dt = 0.001
 timeout_duration = 15.0
 steady_state_checking_duration_window = 1.0
 
@@ -404,6 +404,7 @@ for j in range (variation_number):
 
         # Plotting
         plt.figure(scenario_name + " x vs time")
+        plt.plot(time, x_dot_dot, "g-.", alpha=0.5, label="x_dot_dot (m/s^2)")
         plt.plot(time, x_dot, "b--", label="x_dot (m/s)")
         plt.plot(time, x, "r", label="x (m)")
         plt.legend(loc="upper right")
@@ -415,6 +416,7 @@ for j in range (variation_number):
         plt.savefig(folder_path + scenario_name + " x vs time.png")
 
         plt.figure(scenario_name + " l vs time")
+        plt.plot(time, l_dot_dot, "r-.", alpha=0.5, label="l_dot_dot (m/s^2)")
         plt.plot(time, l_dot, "g--", label="l_dot (m/s)")
         plt.plot(time, l, "b", label="l (m)")
         plt.legend(loc="upper right")
@@ -426,6 +428,7 @@ for j in range (variation_number):
         plt.savefig(folder_path + scenario_name + " l vs time.png")
 
         plt.figure(scenario_name + " theta vs time")
+        plt.plot(time, theta_dot_dot, "b-.", alpha=0.5, label="theta_dot_dot (degree/s^2)")
         plt.plot(time, theta_dot, "r--", label="theta_dot (degree/s)")
         plt.plot(time, theta, "g", label="theta (degree)")
         plt.legend(loc="upper right")
@@ -480,4 +483,4 @@ filename = "result.xlsx"
 save_path = os.path.join(absolute_folder_path, filename)
 df = pd.DataFrame(result)
 df.to_excel(save_path, index=False)
-    
+print ("Saving Done!")
