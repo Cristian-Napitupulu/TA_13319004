@@ -145,7 +145,7 @@ k = [[k1], [k2]]
 # print("k: \n", k)
 
 # Simulation Parameter
-dt = 0.0001
+dt = 0.0005
 timeout_duration = 15.0
 steady_state_checking_duration_window = 1.0
 
@@ -372,6 +372,7 @@ for j in range (variation_number):
     # Konversi dari radian ke derajat untuk keperluan plotting
     theta = [math.degrees(i) for i in theta]
     theta_dot = [math.degrees(i) for i in theta_dot]
+    theta_dot_dot = [math.degrees(i) for i in theta_dot_dot]
 
     # Lakukan analisis untuk mendapatkan rise time, settling time, dan RMSE...
     # ...untuk setiap variabel kemudian simpan ke dalam list
@@ -428,7 +429,7 @@ for j in range (variation_number):
         plt.savefig(folder_path + scenario_name + " l vs time.png")
 
         plt.figure(scenario_name + " theta vs time")
-        plt.plot(time, theta_dot_dot, "b-.", label="theta_dot_dot (degree/s^2)")
+        # plt.plot(time, theta_dot_dot, "b-.", label="theta_dot_dot (degree/s^2)")
         plt.plot(time, theta_dot, "r--", label="theta_dot (degree/s)")
         plt.plot(time, theta, "g", label="theta (degree)")
         plt.legend(loc="upper right")
