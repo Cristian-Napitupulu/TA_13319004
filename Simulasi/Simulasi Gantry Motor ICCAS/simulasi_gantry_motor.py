@@ -145,7 +145,7 @@ k = [[k1], [k2]]
 # print("k: \n", k)
 
 # Simulation Parameter
-dt = 0.001
+dt = 0.0001
 timeout_duration = 15.0
 steady_state_checking_duration_window = 1.0
 
