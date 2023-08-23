@@ -145,7 +145,7 @@ k = [[k1], [k2]]
 # print("k: \n", k)
 
 # Simulation Parameter
-dt = 0.0005
+dt = 0.0001
 timeout_duration = 15.0
 steady_state_checking_duration_window = 1.0
 
@@ -405,7 +405,7 @@ for j in range (variation_number):
 
         # Plotting
         plt.figure(scenario_name + " x vs time")
-        plt.plot(time, x_dot_dot, "g-.", label="x_dot_dot (m/s^2)")
+        # plt.plot(time, x_dot_dot, "g-.", label="x_dot_dot (m/s^2)")
         plt.plot(time, x_dot, "b--", label="x_dot (m/s)")
         plt.plot(time, x, "r", label="x (m)")
         plt.legend(loc="upper right")
@@ -417,7 +417,7 @@ for j in range (variation_number):
         plt.savefig(folder_path + scenario_name + " x vs time.png")
 
         plt.figure(scenario_name + " l vs time")
-        plt.plot(time, l_dot_dot, "r-.", label="l_dot_dot (m/s^2)")
+        # plt.plot(time, l_dot_dot, "r-.", label="l_dot_dot (m/s^2)")
         plt.plot(time, l_dot, "g--", label="l_dot (m/s)")
         plt.plot(time, l, "b", label="l (m)")
         plt.legend(loc="upper right")
