@@ -148,6 +148,7 @@ k = [[k1], [k2]]
 dt = 0.0001
 timeout_duration = 15.0
 steady_state_checking_duration_window = 1.0
+print("dt: ", dt)
 
 
 y_desired = np.matrix([[1.0], [0.5], [0.0]])
@@ -155,12 +156,12 @@ y_initial = np.matrix([[0.0], [1.5], [0.0]])
 
 result = []
 
-variation_number = 2
+scenario_number = 2
 show_result = True
 # j adalah variasi yang akan diuji
 # j = 0 -> unconstrained
 # j = 1 -> constrained
-for j in range (variation_number):
+for j in range (scenario_number):
     # deklarasi variabel untuk initial condition
     x = [y_initial[0, 0]]
     x_dot = [0.0]
@@ -373,19 +374,21 @@ for j in range (variation_number):
     theta = [math.degrees(i) for i in theta]
     theta_dot = [math.degrees(i) for i in theta_dot]
     theta_dot_dot = [math.degrees(i) for i in theta_dot_dot]
+    negative_Sx = [-i for i in Sx]
+    negative_Sl = [-i for i in Sl]
 
     # Lakukan analisis untuk mendapatkan rise time, settling time, dan RMSE...
     # ...untuk setiap variabel kemudian simpan ke dalam list
     result.append(
         {
-            "Variation": scenario_name,
-            "Rise time x (s)": rise_time(x, y_desired[0, 0]),
-            "Settling time x (s)": settling_time(x, y_desired[0, 0]),
-            "RMSE x (m)": rmse_steady_state(x, y_desired[0, 0]),
-            "Rise time l (s)": rise_time(l, y_desired[1, 0]),
-            "Settling time l (s)": settling_time(l, y_desired[1, 0]),
-            "RMSE l (m)": rmse_steady_state(l, y_desired[1, 0]),
-            "Settling time theta (s)": settling_time(theta, y_desired[2, 0], error_max= theta_max_error),
+            "Scenario": scenario_name,
+            "Rise time x (sec.)": rise_time(x, y_desired[0, 0]),
+            "Settling time x (sec.)": settling_time(x, y_desired[0, 0]),
+            "RMSE x (meter)": rmse_steady_state(x, y_desired[0, 0]),
+            "Rise time l (sec.)": rise_time(l, y_desired[1, 0]),
+            "Settling time l (sec.)": settling_time(l, y_desired[1, 0]),
+            "RMSE l (meter)": rmse_steady_state(l, y_desired[1, 0]),
+            "Settling time theta (sec.)": settling_time(theta, y_desired[2, 0], error_max= theta_max_error),
             "RMSE theta (degree)": rmse_steady_state(theta, y_desired[2, 0], error_max= theta_max_error),
             "Max Amplitude (degree)": get_max_aplitude(theta),
         }
@@ -401,87 +404,99 @@ for j in range (variation_number):
         time = np.arange(0, timeout_duration + dt, dt)
        
         # Plotting
-        plt.figure(scenario_name + " x vs time")
-        plt.plot(time, x, "r", label='$x \; (m)$')
-        plt.plot(time, x_dot, "b--", label='$\dot{x} \; (ms^{-1})$')
-        plt.plot(time, x_dot_dot, "g-.", label='$\ddot{x} \; (ms^{-2})$')
+        plot_name = scenario_name + " x vs time"
+        plt.figure(plot_name)
+        plt.plot(time, x, "r", label='$x \; (meter)$')
+        plt.plot(time, x_dot, "b--", label='$\dot{x} \; (meter \cdot {sec.}^{-1})$')
+        plt.plot(time, x_dot_dot, "g-.", label='$\ddot{x} \; (meter \cdot {sec.}^{-2})$')
         plt.legend(loc="upper right")
-        plt.xlabel("$time \; (s)$")
+        plt.xlabel("$time \; (sec.)$")
         plt.ylabel("$x$")
-        plt.title("$x \; vs \; time$")
+        plt.xlim(min(time), max(time))
+        plt.title(scenario_name + " $x \; vs \; time$")
         plt.grid(True)
         plt.grid(which = "minor", linewidth = 0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + scenario_name + " x vs time.svg", format='svg', transparent=True)
-        plt.savefig(folder_path + scenario_name + " x vs time.png")
+        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".png")
 
-        plt.figure(scenario_name + " l vs time")
-        plt.plot(time, l, "b", label="$l \; (m)$")
-        plt.plot(time, l_dot, "g--", label='$\dot{l} \; (ms^{-1})$')
-        plt.plot(time, l_dot_dot, "r-.", label='$\ddot{l} \; (ms^{-2})$')              
+        plot_name = scenario_name + " l vs time"
+        plt.figure(plot_name) 
+        plt.plot(time, l, "b", label="$l \; (meter)$")
+        plt.plot(time, l_dot, "g--", label='$\dot{l} \; (meter \cdot {sec.}^{-1})$')
+        plt.plot(time, l_dot_dot, "r-.", label='$\ddot{l} \; (meter \cdot {sec.}^{-2})$')              
         plt.legend(loc="upper right")
-        plt.xlabel("$time \; (s)$")
+        plt.xlabel("$time \; (sec.)$")
         plt.ylabel("$l$")
-        plt.title("$l \; vs \;time$")
+        plt.xlim(min(time), max(time))
+        plt.title(scenario_name + " $l \; vs \;time$")
         plt.grid(True)
         plt.grid(which = "minor", linewidth = 0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + scenario_name + " l vs time.svg", format='svg', transparent=True)
-        plt.savefig(folder_path + scenario_name + " l vs time.png")
+        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".png")
 
-        plt.figure(scenario_name + " theta vs time")
+        plot_name = scenario_name + " theta vs time"
+        plt.figure(plot_name)
         plt.plot(time, theta, "g", label="$\\theta \; (degree)$")
-        plt.plot(time, theta_dot, "r--", label="$\dot{\\theta} \; (degree \: s^{-1})$")
-        # plt.plot(time, theta_dot_dot, "b-.", label="$\ddot{\\theta} \; (s^{-2})$")
+        plt.plot(time, theta_dot, "r--", label="$\dot{\\theta} \; (degree \cdot {sec.}^{-1})$")
+        # plt.plot(time, theta_dot_dot, "b-.", label="$\ddot{\\theta} \; ({sec.}^{-2})$")
         plt.legend(loc="upper right")
-        plt.xlabel("$time \; (s)$")
+        plt.xlabel("$time \; (sec.)$")
         plt.ylabel("$\\theta$")
-        plt.title("$\\theta \; vs \; time$")
+        plt.xlim(min(time), max(time))
+        plt.title(scenario_name + " $\\theta \; vs \; time$")
         plt.grid(True)
         plt.grid(which = "minor", linewidth = 0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + scenario_name + " theta vs time.svg", format='svg', transparent=True)
-        plt.savefig(folder_path + scenario_name + " theta vs time.png")
+        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".png")
 
-        plt.figure(scenario_name + " u1 vs time")
+        plot_name = scenario_name + " u1 vs time"
+        plt.figure(plot_name)
         plt.plot(time, Ux, "r", label="$u_{1} \; (volt)$")
         plt.plot(time, Sx, "b--", label="$s_{1}$")
         plt.legend(loc="upper right")
-        plt.xlabel("$time \; (s)$")
+        plt.xlabel("$time \; (sec.)$")
         plt.ylabel("$u_{1} \; Response$")
-        plt.title("$u_{1} \; vs \; time$")
+        plt.xlim(min(time), max(time))
+        plt.title(scenario_name + " $u_{1} \; vs \; time$")
         plt.grid(True)
         plt.grid(which = "minor", linewidth = 0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + scenario_name + " u1 vs time.svg", format='svg', transparent=True)
-        plt.savefig(folder_path + scenario_name + " u1 vs time.png")
+        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".png")
 
-        plt.figure(scenario_name + " u2 vs time")
+        plot_name = scenario_name + " u2 vs time"
+        plt.figure(plot_name)
         plt.plot(time, Ul, "r", label="$u_{2} \; (volt)$")
         plt.plot(time, Sl, "b--", label="$s_{2}$")
         plt.legend(loc="upper right")
-        plt.xlabel("$time \; (s)$")
+        plt.xlabel("$time \; (sec.)$")
         plt.ylabel("$u_{2} \; Response$")
-        plt.title("$u_{2} \; vs \; time$")
+        plt.xlim(min(time), max(time))
+        plt.title(scenario_name + " $u_{2} \; vs \; time$")
         plt.grid(True)
         plt.grid(which = "minor", linewidth = 0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + scenario_name + " u2 vs time.svg", format='svg', transparent=True)
-        plt.savefig(folder_path + scenario_name + " u2 vs time.png")
+        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".png")
 
-        plt.figure(scenario_name + " state vs time")
-        plt.plot(time, x, "r", label="$x \; (m)$")
-        plt.plot(time, l, "b", label="$l \; (m)$")
+        plot_name = scenario_name + " state vs time"
+        plt.figure(plot_name)
+        plt.plot(time, x, "r", label="$x \; (meter)$")
+        plt.plot(time, l, "b", label="$l \; (meter)$")
         plt.plot(time, theta, "g", label="$\\theta \; (degree)$")
         plt.legend(loc="upper right")
-        plt.xlabel("$time \; (s)$")
+        plt.xlabel("$time \; (sec.)$")
         plt.ylabel("$State$")
-        plt.title("$State \; vs \; time$")
+        plt.xlim(min(time), max(time))
+        plt.title(scenario_name + " $State \; vs \; time$")
         plt.grid(True)
         plt.grid(which = "minor", linewidth = 0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + scenario_name + " state vs time.svg", format='svg', transparent=True)
-        plt.savefig(folder_path + scenario_name + " state vs time.png")
+        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".png")
 
         print ("Plotting Done!")
 
