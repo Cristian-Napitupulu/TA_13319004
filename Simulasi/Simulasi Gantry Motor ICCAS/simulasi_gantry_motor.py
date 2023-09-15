@@ -233,7 +233,7 @@ for j in range (scenario_number):
             L1 * rp1 * mc * l[i] * np.cos(theta[i]) * theta_dot[i] ** 2 / Kt1
             + L1 * rp1 * mc * np.sin(theta[i]) * l_dot[i] * theta_dot[i] / Kt1
             + R1 * rp1 * mc * l[i] * np.sin(theta[i]) * theta_dot[i] / Kt1
-            + L1 * rp1 * mc * g * np.cos(2* theta[i]) ** 2 / Kt1
+            + L1 * rp1 * mc * g * np.cos(2* theta[i]) / Kt1
         )
         matrix_E[1, 0] = (
             -L2 * rp2 * mc * l_dot[i] * theta_dot[i] / Kt2
