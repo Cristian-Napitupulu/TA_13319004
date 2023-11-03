@@ -12,10 +12,12 @@ import matplotlib.pyplot as plt
 import math
 import pandas as pd
 import os
+import time as tm
 
 absolute_folder_path = os.path.abspath(os.path.dirname(__file__))
 relative_folder_path = "Gambar/"
 folder_path = os.path.join(absolute_folder_path, relative_folder_path)
+
 
 # Fungsi untuk mendapatkan nilai sign dari matriks S (sliding surface)
 def sign_matrix(X):
@@ -30,9 +32,11 @@ def sign_matrix(X):
                 Y[i, j] = 0
     return Y
 
-settle_percentage = 0.02 # 2%
-begin_rise_percentage = 0.1 # 0%
-end_rise_percentage = 0.9 # 95%
+
+settle_percentage = 0.02  # 2%
+begin_rise_percentage = 0.1  # 0%
+end_rise_percentage = 0.9  # 95%
+
 
 # Fungsi untuk mendapatkan nilai rise time
 def rise_time(data, setpoint):
@@ -51,13 +55,14 @@ def rise_time(data, setpoint):
             break
     return str(round(end_rise_time - begin_rise_time, 5))
 
+
 # Fungsi untuk mendapatkan nilai settling time
 def settling_time(data, setpoint, error_max=0.0):
     settling_time_percentage = settle_percentage
     amplitude = abs(data[0] - setpoint) * settling_time_percentage
     if error_max != 0.0:
         amplitude = error_max
-        
+
     settling_time = 0.0
     for i in range(len(data) - 1, 0, -1):
         if abs(data[i] - setpoint) >= amplitude:
@@ -65,27 +70,30 @@ def settling_time(data, setpoint, error_max=0.0):
             break
     return str(round(settling_time, 5))
 
+
 # Fungsi untuk mendapatkan nilai RMSE steady state
 def rmse_steady_state(data, setpoint, error_max=0.0):
     settling_time_percentage = settle_percentage
     amplitude = abs(data[0] - setpoint) * settling_time_percentage
     if error_max != 0.0:
         amplitude = error_max
-        
+
     settling_index = 0
     for i in range(len(data) - 1, 0, -1):
         if abs(data[i] - setpoint) >= amplitude:
             settling_index = i
             break
-    
+
     sum_squared_error = 0.0
-    for i in range (len(data)-1, settling_index, -1):
+    for i in range(len(data) - 1, settling_index, -1):
         sum_squared_error += (data[i] - setpoint) ** 2
     return str(round(np.sqrt(sum_squared_error / (len(data) - settling_index)), 5))
+
 
 def get_max_aplitude(data):
     abs_data = [abs(i) for i in data]
     return str(round(max(abs_data), 5))
+
 
 # Physical Parameter
 # Gantry
@@ -148,7 +156,7 @@ k = [[k1], [k2]]
 dt = 0.0001
 timeout_duration = 15.0
 steady_state_checking_duration_window = 1.0
-print("dt: ", dt)
+# print("dt: ", dt)
 
 
 y_desired = np.matrix([[1.0], [0.5], [0.0]])
@@ -161,7 +169,7 @@ show_result = True
 # j adalah variasi yang akan diuji
 # j = 0 -> unconstrained
 # j = 1 -> constrained
-for j in range (scenario_number):
+for j in range(scenario_number):
     # deklarasi variabel untuk initial condition
     x = [y_initial[0, 0]]
     x_dot = [0.0]
@@ -173,7 +181,7 @@ for j in range (scenario_number):
     theta_dot = [0.0]
     theta_dot_dot = [0.0]
 
-    theta_max_error = 0.001 * 180 / np.pi # degree
+    theta_max_error = 0.001 * 180 / np.pi  # degree
 
     Ux = [0.0]
     Ul = [0.0]
@@ -188,65 +196,72 @@ for j in range (scenario_number):
     matrix_E = np.matrix([[0.0], [0.0]])
     matrix_F = np.matrix([[0.0], [0.0]])
 
+    print("Simulating " + scenario_name + " scenario...")
     # Mulai simulasi
     i = 0
     while i < int(timeout_duration / dt):
         # print("i: ", i)
 
         # Update matrix A
-        matrix_A[0, 0] = (
-            L1 * J1 / (Kt1 * rp1) + L1 * rp1 * (mt + mc * np.sin(theta[i]) ** 2) / Kt1
-        )
-        matrix_A[0, 1] = -L1 * rp1 * mc * np.sin(theta[i]) / Kt1
-        matrix_A[1, 0] = -L2 * rp2 * mc * np.sin(theta[i]) / Kt2
-        matrix_A[1, 1] = L2 * J2 / (Kt2 * rp2) + L2 * rp2 * mc / Kt2
+        matrix_A[0, 0] = L1 * rp1 * (
+            mt + mc * np.sin(theta[i]) ** 2
+        ) / Kt1 + J1 * L1 / (Kt1 * rp1)
+        matrix_A[0, 1] = - L1 * mc * rp1 * np.sin(theta[i]) / Kt1
+        matrix_A[1, 0] = - L2 * mc * rp2 * np.sin(theta[i]) / Kt2
+        matrix_A[1, 1] = L2 * mc * rp2 / Kt2 + J2 * L2 / (Kt2 * rp2)
 
         # Update matrix B
         matrix_B[0, 0] = (
-            (L1 * b1 + R1 * J1) / (Kt1 * rp1)
-            + L1 * rp1 * mc * np.sin(2*theta[i]) * theta_dot[i] / Kt1
-            + L1 * rp1 * bt / Kt1
+            + L1 * mc * rp1 * np.sin(2 * theta[i]) * theta_dot[i] / Kt1
             + R1 * rp1 * (mt + mc * np.sin(theta[i]) ** 2) / Kt1
+            + L1 * bt * rp1 / Kt1
+            + J1 * R1 / (Kt1 * rp1)
+            + L1 * b1 / (Kt1 * rp1)
         )
         matrix_B[0, 1] = (
-            -L1 * rp1 * mc * np.cos(theta[i]) * theta_dot[i] / Kt1
-            - R1 * rp1 * mc * np.sin(theta[i]) / Kt1
+            - L1 * mc * rp1 * np.cos(theta[i]) * theta_dot[i] / Kt1
+            - R1 * mc * rp1 * np.sin(theta[i]) / Kt1
         )
         matrix_B[1, 0] = (
-            -L2 * rp2 * mc * np.cos(theta[i]) * theta_dot[i] / Kt2
-            - R2 * rp2 * mc * np.sin(theta[i]) / Kt2
+            - L2 * mc * rp2 * np.cos(theta[i]) * theta_dot[i] / Kt2
+            - R2 * mc * rp2 * np.sin(theta[i]) / Kt2
         )
         matrix_B[1, 1] = (
-            (L2 * b2 + R2 * J2) / (Kt2 * rp2) + L2 * rp2 * br / Kt2 + R2 * rp2 * mc / Kt2
+            + L2 * br * rp2 / Kt2
+            + R2 * mc * rp2 / Kt2
+            + J2 * R2 / (Kt2 * rp2)
+            + L2 * b2 / (Kt2 * rp2)
         )
 
         # Update matrix C
-        matrix_C[0, 0] = R1 * b1 / (Kt1 * rp1) + Ke1 / rp1 + R1 * rp1 * bt / Kt1
-        matrix_C[1, 1] = R2 * b2 / (Kt2 * rp2) + Ke2 / rp2 + R2 * rp2 * br / Kt2
+        matrix_C[0, 0] = R1 * bt * rp1 / Kt1 + Ke1 / rp1 + R1 * b1 / (Kt1 * rp1)
+        matrix_C[1, 1] = R2 * br * rp2 / Kt2 + Ke2 / rp2 + R2 * b2 / (Kt2 * rp2)
 
         # Update matrix D
-        matrix_D[0, 0] = 2 * L1 * rp1 * mc * l[i] * np.sin(theta[i]) * theta_dot[i] / Kt1
-        matrix_D[1, 0] = -2 * L2 * rp2 * mc * l[i] * theta_dot[i] / Kt2
+        matrix_D[0, 0] = (
+            2 * L1 * mc * rp1 * l[i] * np.sin(theta[i]) * theta_dot[i] / Kt1
+        )
+        matrix_D[1, 0] = - 2 * L2 * mc * rp2 * l[i] * theta_dot[i] / Kt2
 
         # Update matrix E
         matrix_E[0, 0] = (
-            L1 * rp1 * mc * l[i] * np.cos(theta[i]) * theta_dot[i] ** 2 / Kt1
-            + L1 * rp1 * mc * np.sin(theta[i]) * l_dot[i] * theta_dot[i] / Kt1
-            + R1 * rp1 * mc * l[i] * np.sin(theta[i]) * theta_dot[i] / Kt1
-            + L1 * rp1 * mc * g * np.cos(2* theta[i]) / Kt1
+            L1 * mc * rp1 * l[i] * np.cos(theta[i]) * theta_dot[i] ** 2 / Kt1
+            + L1 * g * mc * rp1 * np.cos(2 * theta[i]) / Kt1
+            + L1 * mc * rp1 * np.sin(theta[i]) * l_dot[i] * theta_dot[i] / Kt1
+            + R1 * mc * rp1 * l[i] * np.sin(theta[i]) * theta_dot[i] / Kt1
         )
         matrix_E[1, 0] = (
-            -L2 * rp2 * mc * l_dot[i] * theta_dot[i] / Kt2
-            - R2 * rp2 * mc * l[i] * theta_dot[i] / Kt2
-            + L2 * rp2 * mc * g * np.sin(theta[i]) / Kt2
+            + L2 * g * mc * rp2 * np.sin(theta[i]) / Kt2
+            - L2 * mc * rp2 * l_dot[i] * theta_dot[i] / Kt2
+            - R2 * mc * rp2 * l[i] * theta_dot[i] / Kt2            
         )
 
         # Update matrix F
-        matrix_F[0, 0] = R1 * rp1 * mc * g * np.sin(theta[i]) * np.cos(theta[i]) / Kt1
-        matrix_F[1, 0] = -R2 * rp2 * mc * g * np.cos(theta[i]) / Kt2
+        matrix_F[0, 0] = R1 * g * mc * rp1 * np.sin(theta[i]) * np.cos(theta[i]) / Kt1
+        matrix_F[1, 0] = - R2 * g * mc * rp2 * np.cos(theta[i]) / Kt2
 
         # Buat variabel untuk q, q_dot, q_dot_dot, dan q_desired yang...
-        # ...menyimpan nilai 2 state utama: x dan l serta turunannya 
+        # ...menyimpan nilai 2 state utama: x dan l serta turunannya
         q_now = np.matrix([[x[i]], [l[i]]])
         q_dot_now = np.matrix([[x_dot[i]], [l_dot[i]]])
         q_dot_dot_now = np.matrix([[x_dot_dot[i]], [l_dot_dot[i]]])
@@ -270,7 +285,7 @@ for j in range (scenario_number):
             - k * sign_matrix(sliding_surface_now)
         )
 
-        if j==1:    # jika sedang melakukan constrained scenario ...
+        if j == 1:  # jika sedang melakukan constrained scenario ...
             constrained = True
             scenario_name = "constrained"
             # ... maka control yang dihasilkan akan dibatasi oleh control limit
@@ -345,7 +360,9 @@ for j in range (scenario_number):
 
         # Bagian ini hanya untuk menampilkan progress
         if i % 100 == 0:
-            print("Progress: ", round(i / (timeout_duration / dt) * 100, 1), "%", end="\r")
+            print(
+                "Progress: ", round(i / (timeout_duration / dt) * 100, 1), "%", end="\r"
+            )
 
         # Bagian ini untuk menghentikan simulasi jika terjadi divergensi
         if (
@@ -354,12 +371,36 @@ for j in range (scenario_number):
             or abs(theta[i] - abs(y_desired[2, 0])) > 2**16
         ):
             if abs(x[i] - y_desired[0, 0]) > 2**16:
-                print("x diverged at time: ", i * dt, "s", "x: ", x[i], "y_desired: ", y_desired[0, 0])
+                print(
+                    "x diverged at time: ",
+                    i * dt,
+                    "s",
+                    "x: ",
+                    x[i],
+                    "y_desired: ",
+                    y_desired[0, 0],
+                )
             if abs(l[i] - y_desired[1, 0]) > 2**16:
-                print("l diverged at time: ", i * dt, "s", "l: ", l[i], "y_desired: ", y_desired[1, 0])
+                print(
+                    "l diverged at time: ",
+                    i * dt,
+                    "s",
+                    "l: ",
+                    l[i],
+                    "y_desired: ",
+                    y_desired[1, 0],
+                )
             if abs(theta[i] - abs(y_desired[2, 0])) > 2**16:
-                print("theta diverged at time: ", i * dt, "s", "theta: ", theta[i], "y_desired: ", y_desired[2, 0])
-            
+                print(
+                    "theta diverged at time: ",
+                    i * dt,
+                    "s",
+                    "theta: ",
+                    theta[i],
+                    "y_desired: ",
+                    y_desired[2, 0],
+                )
+
             print("Simulation Failed!")
             show_result = False
             break
@@ -388,58 +429,71 @@ for j in range (scenario_number):
             "Rise time l (sec.)": rise_time(l, y_desired[1, 0]),
             "Settling time l (sec.)": settling_time(l, y_desired[1, 0]),
             "RMSE l (meter)": rmse_steady_state(l, y_desired[1, 0]),
-            "Settling time theta (sec.)": settling_time(theta, y_desired[2, 0], error_max= theta_max_error),
-            "RMSE theta (degree)": rmse_steady_state(theta, y_desired[2, 0], error_max= theta_max_error),
+            "Settling time theta (sec.)": settling_time(
+                theta, y_desired[2, 0], error_max=theta_max_error
+            ),
+            "RMSE theta (degree)": rmse_steady_state(
+                theta, y_desired[2, 0], error_max=theta_max_error
+            ),
             "Max Amplitude (degree)": get_max_aplitude(theta),
         }
     )
 
     # print(result)
-    
+
     # Bagian ini untuk melakukan plotting hasil simulasi (jika diinginkan)
     if show_result:
-        print ("Plotting " +scenario_name+ " scenario...")
+        print("Plotting " + scenario_name + " scenario...")
 
         # Buat array untuk waktu
         time = np.arange(0, timeout_duration + dt, dt)
-       
+
         # Plotting
         plot_name = scenario_name + " x vs time"
         plt.figure(plot_name)
-        plt.plot(time, x, "r", label='$x \; (meter)$')
-        plt.plot(time, x_dot, "b--", label='$\dot{x} \; (meter \cdot {sec.}^{-1})$')
-        plt.plot(time, x_dot_dot, "g-.", label='$\ddot{x} \; (meter \cdot {sec.}^{-2})$')
+        plt.plot(time, x, "r", label="$x \; (meter)$")
+        plt.plot(time, x_dot, "b--", label="$\dot{x} \; (meter \cdot {sec.}^{-1})$")
+        plt.plot(
+            time, x_dot_dot, "g-.", label="$\ddot{x} \; (meter \cdot {sec.}^{-2})$"
+        )
         plt.legend(loc="upper right")
         plt.xlabel("$time \; (sec.)$")
         plt.ylabel("$x$")
         plt.xlim(min(time), max(time))
         plt.title(scenario_name + " $x \; vs \; time$")
         plt.grid(True)
-        plt.grid(which = "minor", linewidth = 0.2)
+        plt.grid(which="minor", linewidth=0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".svg", format="svg", transparent=True)
         plt.savefig(folder_path + plot_name + ".png")
 
         plot_name = scenario_name + " l vs time"
-        plt.figure(plot_name) 
+        plt.figure(plot_name)
         plt.plot(time, l, "b", label="$l \; (meter)$")
-        plt.plot(time, l_dot, "g--", label='$\dot{l} \; (meter \cdot {sec.}^{-1})$')
-        plt.plot(time, l_dot_dot, "r-.", label='$\ddot{l} \; (meter \cdot {sec.}^{-2})$')              
+        plt.plot(time, l_dot, "g--", label="$\dot{l} \; (meter \cdot {sec.}^{-1})$")
+        plt.plot(
+            time, l_dot_dot, "r-.", label="$\ddot{l} \; (meter \cdot {sec.}^{-2})$"
+        )
         plt.legend(loc="upper right")
         plt.xlabel("$time \; (sec.)$")
         plt.ylabel("$l$")
         plt.xlim(min(time), max(time))
         plt.title(scenario_name + " $l \; vs \;time$")
         plt.grid(True)
-        plt.grid(which = "minor", linewidth = 0.2)
+        plt.grid(which="minor", linewidth=0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".svg", format="svg", transparent=True)
         plt.savefig(folder_path + plot_name + ".png")
 
         plot_name = scenario_name + " theta vs time"
         plt.figure(plot_name)
         plt.plot(time, theta, "g", label="$\\theta \; (degree)$")
-        plt.plot(time, theta_dot, "r--", label="$\dot{\\theta} \; (degree \cdot {sec.}^{-1})$")
+        plt.plot(
+            time,
+            theta_dot,
+            "r--",
+            label="$\dot{\\theta} \; (degree \cdot {sec.}^{-1})$",
+        )
         # plt.plot(time, theta_dot_dot, "b-.", label="$\ddot{\\theta} \; ({sec.}^{-2})$")
         plt.legend(loc="upper right")
         plt.xlabel("$time \; (sec.)$")
@@ -447,9 +501,9 @@ for j in range (scenario_number):
         plt.xlim(min(time), max(time))
         plt.title(scenario_name + " $\\theta \; vs \; time$")
         plt.grid(True)
-        plt.grid(which = "minor", linewidth = 0.2)
+        plt.grid(which="minor", linewidth=0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".svg", format="svg", transparent=True)
         plt.savefig(folder_path + plot_name + ".png")
 
         plot_name = scenario_name + " u1 vs time"
@@ -462,9 +516,9 @@ for j in range (scenario_number):
         plt.xlim(min(time), max(time))
         plt.title(scenario_name + " $u_{1} \; vs \; time$")
         plt.grid(True)
-        plt.grid(which = "minor", linewidth = 0.2)
+        plt.grid(which="minor", linewidth=0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".svg", format="svg", transparent=True)
         plt.savefig(folder_path + plot_name + ".png")
 
         plot_name = scenario_name + " u2 vs time"
@@ -477,9 +531,9 @@ for j in range (scenario_number):
         plt.xlim(min(time), max(time))
         plt.title(scenario_name + " $u_{2} \; vs \; time$")
         plt.grid(True)
-        plt.grid(which = "minor", linewidth = 0.2)
+        plt.grid(which="minor", linewidth=0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".svg", format="svg", transparent=True)
         plt.savefig(folder_path + plot_name + ".png")
 
         plot_name = scenario_name + " state vs time"
@@ -493,19 +547,21 @@ for j in range (scenario_number):
         plt.xlim(min(time), max(time))
         plt.title(scenario_name + " $State \; vs \; time$")
         plt.grid(True)
-        plt.grid(which = "minor", linewidth = 0.2)
+        plt.grid(which="minor", linewidth=0.2)
         plt.minorticks_on()
-        plt.savefig(folder_path + plot_name + ".svg", format='svg', transparent=True)
+        plt.savefig(folder_path + plot_name + ".svg", format="svg", transparent=True)
         plt.savefig(folder_path + plot_name + ".png")
 
-        print ("Plotting Done!")
+        print("Plotting Done!")
+        tm.sleep(1)
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
     # plt.show()
 
 # Simpan hasil analisis ke dalam file excel
-print ("Saving result to excel...")
+print("Saving all results to excel...")
 filename = "result.xlsx"
 save_path = os.path.join(absolute_folder_path, filename)
 df = pd.DataFrame(result)
 df.to_excel(save_path, index=False)
-print ("Saving Done!")
+print("Saving Done!")
