@@ -301,7 +301,7 @@ for j in range(scenario_number):
                     matrix_B * q_dot_dot_now
                     + matrix_C * q_dot_now
                     + matrix_D * theta_dot_dot[i]
-                    + matrix_E * theta[i]
+                    + matrix_E * theta_dot[i]
                     + matrix_F
                 )
             ),
